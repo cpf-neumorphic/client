@@ -10,12 +10,6 @@ const Footer = styled.footer`
 	padding: 4rem 0;
 `;
 
-const FooterTitle = styled.h4``;
-
-const FooterItem = styled.span`
-	margin: 0 10px;
-`;
-
 export default props => {
 	const title = "CPF Board";
 	const items = ["Sitemap", "About", "Contact Us", "Feedback", "FAQ"];
@@ -23,9 +17,11 @@ export default props => {
 	return (
 		<Footer>
 			<Container>
-				<FooterTitle>{title}</FooterTitle>
+				<h4>{title}</h4>
 				{items.map(item => (
-					<FooterItem key={item}>{item}</FooterItem>
+					<span className="mx-3" key={item}>
+						{item}
+					</span>
 				))}
 			</Container>
 		</Footer>
