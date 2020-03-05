@@ -25,7 +25,7 @@ export default props => {
 			<Container>
 				<FooterTitle>{title}</FooterTitle>
 				{items.map(item => (
-					<FooterItem>{item}</FooterItem>
+					<FooterItem key={item}>{item}</FooterItem>
 				))}
 			</Container>
 		</Footer>
