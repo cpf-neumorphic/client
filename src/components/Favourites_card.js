@@ -8,45 +8,26 @@ import {
   Button,
   Image
 } from "react-bootstrap";
-import { FaHome } from "react-icons/fa";
+import * as MaterialDesign from "react-icons/fa";
 
-const Styles = styled.div`
-  .logo {
-    align: left;
-    height: 64px;
-    width: 64px;
-  }
-  ,
-  .container {
-    padding: 4em;
-    background: papayawhip;
-    height: auto;
-    width: 200px;
-  }
-  .title {
-  }
-`;
-const props = {
-  icon: "FaHome",
-  header: "CPF HOUSING Usage",
-  description: "Description hello mother fucker"
-};
-const Favourites_card = () => {
-  return (
-    <Container>
-      <Styles>
+class Favourites_card extends Component {
+  render() {
+    const { icon, header, description } = this.props.data;
+    const mdIcon = MaterialDesign[icon];
+    console.log(icon);
+    console.log(mdIcon);
+    return (
+      <Col>
+        <Row>{React.createElement(mdIcon)}</Row>
         <Row>
-          <FaHome className="logo" />
+          <h1>{header}</h1>
         </Row>
         <Row>
-          <h1>{props.header}</h1>
+          <p>{description}</p>
         </Row>
-        <Row>
-          <p>{props.description}</p>
-        </Row>
-      </Styles>
-    </Container>
-  );
-};
+      </Col>
+    );
+  }
+}
 
 export default Favourites_card;
