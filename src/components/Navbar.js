@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
@@ -9,6 +10,11 @@ const Nav = styled.nav`
 	background-color: white;
 `;
 
+const StyledLink = styled(Link)`
+	color: black;
+	text-decoration: none;
+`;
+
 export default props => {
 	const name = props.name || "Adam";
 
@@ -16,13 +22,15 @@ export default props => {
 		<Nav>
 			<Container className="d-flex">
 				<div>
-					<img src={CPFLogo} alt="CPFB Logo" style={{ height: "60px" }} />
+					<Link to="/">
+						<img src={CPFLogo} alt="CPFB Logo" style={{ height: "60px" }} />
+					</Link>
 				</div>
 				<div className="d-flex ml-auto">
-					<a className="py-3 px-2">
+					<StyledLink to="#" className="py-3 px-2">
 						<FontAwesomeIcon icon={faUser} className="mr-3" />
 						{name}
-					</a>
+					</StyledLink>
 				</div>
 			</Container>
 		</Nav>
