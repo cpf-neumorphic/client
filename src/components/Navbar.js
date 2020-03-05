@@ -9,35 +9,22 @@ const Nav = styled.nav`
 	background-color: white;
 `;
 
-const Navbar = styled(Container)`
-	display: flex;
-`;
-
-const NavItems = styled.div`
-	display: flex;
-	margin-left: auto;
-`;
-
-const Link = styled.a`
-	padding: 15px 10px;
-`;
-
 export default props => {
 	const name = props.name || "Adam";
 
 	return (
 		<Nav>
-			<Navbar>
+			<Container className="d-flex">
 				<div>
 					<img src={CPFLogo} alt="CPFB Logo" style={{ height: "60px" }} />
 				</div>
-				<NavItems>
-					<Link>
-						<FontAwesomeIcon icon={faUser} style={{ marginRight: "10px" }} />
+				<div className="d-flex ml-auto">
+					<a className="py-3 px-2">
+						<FontAwesomeIcon icon={faUser} className="mr-3" />
 						{name}
-					</Link>
-				</NavItems>
-			</Navbar>
+					</a>
+				</div>
+			</Container>
 		</Nav>
 	);
 };
