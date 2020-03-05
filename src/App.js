@@ -1,7 +1,14 @@
 import React from "react";
 
+import Footer from "./components/Footer";
+
 function App() {
-	return <div className="App">App</div>;
+	return (
+		<>
+			<main>Main view</main>
+			<Footer></Footer>
+		</>
+	);
 }
 
 export default App;
