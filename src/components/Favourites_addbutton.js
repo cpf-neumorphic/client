@@ -1,20 +1,54 @@
 import React, { Component } from "react";
-import { Button } from "react-bootstrap";
-import { MdAddCircle } from "react-icons/md";
+import { Button, Col, Row, Container, Modal } from "react-bootstrap";
+import Favourites_card from "./Favourites_card";
+import { IoIosAddCircle } from "react-icons/io";
+import { IconContext } from "react-icons";
+import styled from "styled-components";
 import Popup from "reactjs-popup";
+import Favourites_addon from "./Favourites_addon";
 
-const addCart = () => {};
+const Add_Button = styled(Button)`
+  background-color: gray;
+  border-radius: 100%;
+`;
 
-class Favourites_addbutton extends Component {
-  render() {
-    return (
-      <div className="container">
-        <Button className="round" onClick="addCart">
-          <MdAddCircle />
-        </Button>
-      </div>
-    );
+const Container_ = styled(Container)`
+  // border-style: solid;
+  height: 50px;
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+  padding: 50%;
+  text-align: center;
+`;
+
+const StyledPopup = styled(Popup)`
+  // use your custom style for ".popup-overlay"
+  &-overlay {
   }
+  // use your custom style for ".popup-content"
+  &-content {
+    width: 100%;
+    height: 80%;
+  }
+`;
+
+function Favourites_addbutton(props) {
+  const [modalShow, setModalShow] = React.useState(false);
+
+  return (
+    <Col sm={4}>
+      <Container_>
+        <Add_Button variant="secondary" onClick={() => setModalShow(true)}>
+          <IconContext.Provider value={{ size: "45px", color: "white" }}>
+            <IoIosAddCircle />
+          </IconContext.Provider>
+        </Add_Button>
+        <Favourites_addon show={modalShow} onHide={() => setModalShow(false)} />
+      </Container_>
+    </Col>
+  );
 }
 
 export default Favourites_addbutton;

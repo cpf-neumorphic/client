@@ -4,61 +4,47 @@ import Favourites_addbutton from "./components/Favourites_addbutton";
 import { Container, Col, Row } from "react-bootstrap";
 import styled from "styled-components";
 
-const Styles = styled.div`
-  .logo {
-    align: left;
-    height: 64px;
-    width: 64px;
-  }
-  ,
-  .container1 {
-    background: white;
-    padding-top: 50px;
-    padding-right: 30px;
-    padding-bottom: 50px;
-    padding-left: 80px;
-    width: 200px;
-    // border-style: solid;
-    //   padding: 4em;
-  }
-  ,
-  .round {
-    background-color: white;
-    // border: none;
-    // color: white;
-    // padding: 20px;
-    // display: inline-block;
-    // margin: 4px 2px;
-    border-radius: 50%;
-  }
+const Container_ = styled(Container)`
+  border-style: solid;
+  height: 100%;
+  width: 100%;
+  padding-top: 50px;
+  padding-right: 50px;
+  padding-bottom: 50px;
+  padding-left: 50px;
 `;
+
 function App() {
-  const [item, setItems] = useState([
+  const [items, setItems] = useState([
     {
       icon: "FaHome",
       header: "CPF HOUSING Usage",
-      description: "Description hello mother fucker"
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus."
     },
     {
       icon: "FaCalculator",
       header: "Mortgage Calculator",
-      description: "Description hello mother fucker"
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Wres bes awer."
     }
   ]);
 
   return (
-    <Styles>
-      <Container>
-        <Row>
-          {item.map(item => (
-            <Container className="container1">
-              <Favourites_card data={item} />
-            </Container>
-          ))}
-        </Row>
-        <Favourites_addbutton set={item} />
-      </Container>
-    </Styles>
+    // <Styles>
+    <Container>
+      <Row>
+        {items.map(item => (
+          <Col sm={4}>
+            <Container_>
+              <Favourites_card data={item} size={"30%"} />
+            </Container_>
+          </Col>
+        ))}
+        <Favourites_addbutton data={setItems} />
+      </Row>
+    </Container>
+    // </Styles>
   );
 }
 
