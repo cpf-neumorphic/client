@@ -2,12 +2,15 @@ import React from "react";
 import { Container, Row } from "react-bootstrap";
 import SectionHeader from "./components/SectionHeader";
 import LandingCard from "./components/LandingCard";
+import SearchBar from "./components/SearchBar";
 
 function App() {
   return (
     <div className="App">
-      App
       <Container>
+        <SearchBar></SearchBar>
+        <br />
+        <br />
         <SectionHeader
           header="Recommended"
           text="These may be useful"
