@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import LandingCard from "./components/LandingCard";
 
 function App() {
@@ -8,9 +8,18 @@ function App() {
       App
       <Container>
         <Row>
-          <LandingCard header="View" text="Your statements"></LandingCard>
-          <LandingCard header="Manage" text="Your accounts"></LandingCard>
           <LandingCard
+            icon="Zap"
+            header="View"
+            text="Your statements"
+          ></LandingCard>
+          <LandingCard
+            icon="Bell"
+            header="Manage"
+            text="Your accounts"
+          ></LandingCard>
+          <LandingCard
+            icon="Bell"
             header="Appointments"
             text="Create & modify"
           ></LandingCard>
