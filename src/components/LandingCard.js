@@ -34,7 +34,7 @@ const IconContainer = styled.div`
   justify-content: center;
   margin-bottom: -35px;
   width: 70px;
-  z-index: 10000;
+  z-index: 1;
   max-width: 100%;
   color: #ffffff;
   font-size: 36px;
@@ -71,7 +71,7 @@ const Card = styled.div`
   padding: 40px 20px 20px 20px;
   width: 280px;
   max-width: 100%;
-  z-index: -10000;
+  z-index: 0;
 `;
 
 const Header = styled.h2`
@@ -113,6 +113,7 @@ export default props => {
             <StyledIcon></StyledIcon>
           </IconContainer>
           <Card>
+            <br />
             <br />
             <Header>{props.header}</Header>
             <Text>{props.text}</Text>

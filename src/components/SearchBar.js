@@ -4,13 +4,22 @@ import styled from "styled-components";
 
 import "./SearchBar.css";
 
+const Wrapper = styled.div`
+  font-family: sans-serif;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+`;
+
 const Form = styled.form`
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  background-color: #37474f;
+  background-color: #ffffff;
   /* Change width of the form depending if the bar is opened or not */
   width: ${props => (props.barOpened ? "30rem" : "2rem")};
   /* If bar opened, normal cursor on the whole form. If closed, show pointer on the whole form so user knows he can click to open it */
@@ -22,13 +31,16 @@ const Form = styled.form`
 `;
 
 const Input = styled.input`
+  color: rgb(70, 70, 70);
+  //   font-family: Lato;
   font-size: 14px;
+  font-weight: 400;
   line-height: 1;
   background-color: transparent;
   width: 100%;
   margin-left: ${props => (props.barOpened ? "1rem" : "0rem")};
   border: none;
-  color: white;
+
   transition: margin 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
 
   &:focus,
@@ -36,7 +48,7 @@ const Input = styled.input`
     outline: none;
   }
   &::placeholder {
-    color: white;
+    color: rgb(70, 70, 70);
   }
 `;
 
@@ -47,7 +59,9 @@ const Button = styled.button`
   background-color: transparent;
   border: none;
   outline: none;
-  color: white;
+  color: rgb(70, 70, 70);
+  outline: none;
+  cursor: pointer;
 `;
 
 export default props => {
@@ -65,37 +79,39 @@ export default props => {
     console.log(`Form was submited with input: ${input}`);
   };
   return (
-    <Form
-      barOpened={barOpened}
-      onClick={() => {
-        // When form clicked, set state of baropened to true and focus the input
-        setBarOpened(true);
-        inputFocus.current.focus();
-      }}
-      // on focus open search bar
-      onFocus={() => {
-        setBarOpened(true);
-        inputFocus.current.focus();
-      }}
-      // on blur close search bar
-      onBlur={() => {
-        setBarOpened(false);
-      }}
-      // On submit, call the onFormSubmit function
-      onSubmit={onFormSubmit}
-      ref={formRef}
-    >
-      <Button type="submit" barOpened={barOpened}>
-        icon
-      </Button>
-      <Input
-        onChange={e => setInput(e.target.value)}
-        ref={inputFocus}
-        value={input}
+    <Wrapper>
+      <Form
         barOpened={barOpened}
-        placeholder="Search for a feature..."
-      />
-    </Form>
+        onClick={() => {
+          // When form clicked, set state of baropened to true and focus the input
+          setBarOpened(true);
+          inputFocus.current.focus();
+        }}
+        // on focus open search bar
+        onFocus={() => {
+          setBarOpened(true);
+          inputFocus.current.focus();
+        }}
+        // on blur close search bar
+        onBlur={() => {
+          setBarOpened(false);
+        }}
+        // On submit, call the onFormSubmit function
+        onSubmit={onFormSubmit}
+        ref={formRef}
+      >
+        <Button type="submit" barOpened={barOpened}>
+          icon
+        </Button>
+        <Input
+          onChange={e => setInput(e.target.value)}
+          ref={inputFocus}
+          value={input}
+          barOpened={barOpened}
+          placeholder="Search for a feature..."
+        />
+      </Form>
+    </Wrapper>
   );
 };
 
