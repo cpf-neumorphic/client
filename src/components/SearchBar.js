@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
+import { Search } from "@styled-icons/octicons";
 
 import "./SearchBar.css";
 
@@ -28,6 +29,11 @@ const Form = styled.form`
   height: 2rem;
   border-radius: 10rem;
   transition: width 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+`;
+
+const StyledSearch = styled(Search)`
+  color: rgb(70, 70, 70);
+  width: 1.5em;
 `;
 
 const Input = styled.input`
@@ -101,7 +107,7 @@ export default props => {
         ref={formRef}
       >
         <Button type="submit" barOpened={barOpened}>
-          icon
+          <StyledSearch></StyledSearch>
         </Button>
         <Input
           onChange={e => setInput(e.target.value)}
