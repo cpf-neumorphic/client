@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Container, Row, Col } from "react-bootstrap";
-import { Zap } from "@styled-icons/octicons";
+import Col from "react-bootstrap/Col";
+import * as IconName from "@styled-icons/octicons";
 
 const Wrapper = styled.div`
   align-content: center;
@@ -17,6 +17,7 @@ const Wrapper = styled.div`
   overflow-x: hidden;
   overflow-y: hidden;
   padding: 15px;
+  cursor: pointer;
 `;
 
 const IconContainer = styled.div`
@@ -49,9 +50,9 @@ const IconContainer = styled.div`
 //   flex-direction: column;
 // `;
 
-const StyledIcon = styled(Zap)`
-  width: 25px;
-`;
+// const StyledIcon = styled(IconName.Thumbsup)`
+//   width: 25px;
+// `;
 
 const Card = styled.div`
   align-content: center;
@@ -100,14 +101,16 @@ const Text = styled.p`
 `;
 
 export default props => {
+  const dynamic = props.Icon;
+  const StyledIcon = styled(IconName.Infinity)`
+    width: 25px;
+  `;
   return (
     <>
       <Col>
-        <Wrapper>
+        <Wrapper onclick="location.href='#';">
           <IconContainer>
-            {/* <Icon> */}
             <StyledIcon></StyledIcon>
-            {/* </Icon> */}
           </IconContainer>
           <Card>
             <br />
