@@ -1,0 +1,14 @@
+.title {
+  font-family: "Lato", sans-serif;
+  font: auto bold;
+  text-align: left;
+}
+
+.body {
+  font-family: "Lato", sans-serif;
+  height: 120px;
+  font-size: auto;
+  text-align: left;
+  overflow-y: hidden;
+  /* display: flex; */
+}

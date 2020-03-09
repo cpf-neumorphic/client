@@ -14,12 +14,12 @@ const Add_Button = styled(Button)`
 
 const Container_ = styled(Container)`
   // border-style: solid;
-  height: 50px;
-  padding-top: 50px;
-  padding-right: 30px;
-  padding-bottom: 50px;
-  padding-left: 80px;
-  padding: 50%;
+  height: 300px;
+  // padding-top: 50px;
+  // padding-right: 50px;
+  // padding-bottom: 50px;
+  // padding-left: 50px;
+  padding: 40%;
   text-align: center;
 `;
 
@@ -36,7 +36,8 @@ const StyledPopup = styled(Popup)`
 
 function Favourites_addbutton(props) {
   const [modalShow, setModalShow] = React.useState(false);
-
+  const { Items, data } = props;
+  console.log(Items);
   return (
     <Col sm={4}>
       <Container_>
@@ -45,7 +46,12 @@ function Favourites_addbutton(props) {
             <IoIosAddCircle />
           </IconContext.Provider>
         </Add_Button>
-        <Favourites_addon show={modalShow} onHide={() => setModalShow(false)} />
+        <Favourites_addon
+          Items={Items}
+          data={data}
+          show={modalShow}
+          onHide={() => setModalShow(false)}
+        />
       </Container_>
     </Col>
   );
