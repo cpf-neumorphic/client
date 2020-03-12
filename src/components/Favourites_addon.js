@@ -6,15 +6,23 @@ import { useMediaQuery } from "react-responsive";
 import "./Addon.css";
 
 const StyledButton = styled(Button)`
-  // border-style: solid;
-  height: 300px;
-  width: 100%;
-  // margin-top: 50px;
-  padding-right: 50px;
-  padding-bottom: 50px;
-  padding-left: 50px;
-  padding-top: 50px;
-  //   text-align: left;
+   {
+    // border-style: solid;
+    //   text-align: left;
+    // margin-top: 50px;
+    height: 300px;
+    width: 100%;
+    padding-right: 50px;
+    padding-bottom: 50px;
+    padding-left: 50px;
+    padding-top: 50px;
+  }
+`;
+
+const Mobile_StyledButton = styled(StyledButton)`
+   {
+    height: 200px;
+  }
 `;
 
 function saveChanges(props, items, setState) {
@@ -45,19 +53,78 @@ function Favourites_addon(props) {
   });
   console.log(Items);
   return (
-    <Modal {...props} dialogClassName="modal-90w" centered>
-      <Modal.Header closeButton>
-        <Modal.Title>Add Favourites</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <Container className="m-2">
-          {isDesktopOrLaptop && (
-            <Row>
-              {tempFavourites.Favourites.map(Favourite =>
-                Favourite.status ? (
-                  <Col sm={4}>
-                    <StyledButton
-                      variant="success"
+    <div>
+      {/* Desktop */}
+      <div>
+        {isDesktopOrLaptop && (
+          <Modal {...props} dialogClassName="desktop_modalconfig" centered>
+            <Modal.Header closeButton>
+              <Modal.Title>Add Favourites</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <Container>
+                <Row className="m-2">
+                  {tempFavourites.Favourites.map(Favourite =>
+                    Favourite.status ? (
+                      <Col sm={4}>
+                        <StyledButton
+                          bsPrefix="styledButton-green"
+                          // className="background"
+                          // variant="info"
+                          onClick={() =>
+                            changStats(
+                              tempFavourites,
+                              setTempFavourites,
+                              Favourite.id
+                            )
+                          }
+                        >
+                          <Favourites_card data={Favourite} size={"20%"} />
+                        </StyledButton>
+                      </Col>
+                    ) : (
+                      <Col sm={4}>
+                        <StyledButton
+                          bsPrefix="styledButton-gray"
+                          // variant="light"
+                          onClick={() =>
+                            changStats(
+                              tempFavourites,
+                              setTempFavourites,
+                              Favourite.id
+                            )
+                          }
+                        >
+                          <Favourites_card data={Favourite} size={"20%"} />
+                        </StyledButton>
+                      </Col>
+                    )
+                  )}
+                </Row>
+              </Container>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button onClick={() => saveChanges(props, tempFavourites, data)}>
+                Save Change
+              </Button>
+              <Button onClick={props.onHide}>Close</Button>
+            </Modal.Footer>
+          </Modal>
+        )}
+      </div>
+      {/* Mobile */}
+      <div>
+        {isTabletOrMobileDevice && (
+          <Modal {...props} dialogClassName="mobile_modalconfig" centered>
+            <Modal.Header closeButton>
+              <Modal.Title>Add Favourites</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <div className="row-overflow">
+                {tempFavourites.Favourites.map(Favourite =>
+                  Favourite.status ? (
+                    <Mobile_StyledButton
+                      bsPrefix="moblie_styledbutton-green"
                       onClick={() =>
                         changStats(
                           tempFavourites,
@@ -66,13 +133,11 @@ function Favourites_addon(props) {
                         )
                       }
                     >
-                      <Favourites_card data={Favourite} size={"20%"} />
-                    </StyledButton>
-                  </Col>
-                ) : (
-                  <Col sm={4}>
-                    <StyledButton
-                      variant="light"
+                      <Favourites_card data={Favourite} size={"30%"} />
+                    </Mobile_StyledButton>
+                  ) : (
+                    <Mobile_StyledButton
+                      bsPrefix="moblie_styledbutton-gray"
                       onClick={() =>
                         changStats(
                           tempFavourites,
@@ -81,57 +146,22 @@ function Favourites_addon(props) {
                         )
                       }
                     >
-                      <Favourites_card data={Favourite} size={"20%"} />
-                    </StyledButton>
-                  </Col>
-                )
-              )}
-            </Row>
-          )}
-          {isTabletOrMobileDevice && (
-            <div className="row-overflow">
-              {tempFavourites.Favourites.map(Favourite =>
-                Favourite.status ? (
-                  <StyledButton
-                    id="x"
-                    variant="success"
-                    onClick={() =>
-                      changStats(
-                        tempFavourites,
-                        setTempFavourites,
-                        Favourite.id
-                      )
-                    }
-                  >
-                    <Favourites_card data={Favourite} size={"30%"} />
-                  </StyledButton>
-                ) : (
-                  <StyledButton
-                    id="x"
-                    variant="light"
-                    onClick={() =>
-                      changStats(
-                        tempFavourites,
-                        setTempFavourites,
-                        Favourite.id
-                      )
-                    }
-                  >
-                    <Favourites_card data={Favourite} size={"30%"} />
-                  </StyledButton>
-                )
-              )}
-            </div>
-          )}
-        </Container>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={() => saveChanges(props, tempFavourites, data)}>
-          Save Change
-        </Button>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
-    </Modal>
+                      <Favourites_card data={Favourite} size={"30%"} />
+                    </Mobile_StyledButton>
+                  )
+                )}
+              </div>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button onClick={() => saveChanges(props, tempFavourites, data)}>
+                Save Change
+              </Button>
+              <Button onClick={props.onHide}>Close</Button>
+            </Modal.Footer>
+          </Modal>
+        )}
+      </div>
+    </div>
   );
 }
 

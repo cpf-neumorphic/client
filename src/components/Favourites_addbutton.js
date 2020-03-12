@@ -1,10 +1,9 @@
-import React, { Component } from "react";
-import { Button, Col, Row, Container, Modal } from "react-bootstrap";
-import Favourites_card from "./Favourites_card";
+import React from "react";
+import { Button, Col, Container } from "react-bootstrap";
+// import Favourites_card from "./Favourites_card";
 import { IoIosAddCircle } from "react-icons/io";
 import { IconContext } from "react-icons";
 import styled from "styled-components";
-import Popup from "reactjs-popup";
 import Favourites_addon from "./Favourites_addon";
 
 const Add_Button = styled(Button)`
@@ -21,17 +20,6 @@ const Container_ = styled(Container)`
   // padding-left: 50px;
   padding: 40%;
   text-align: center;
-`;
-
-const StyledPopup = styled(Popup)`
-  // use your custom style for ".popup-overlay"
-  &-overlay {
-  }
-  // use your custom style for ".popup-content"
-  &-content {
-    width: 100%;
-    height: 80%;
-  }
 `;
 
 function Favourites_addbutton(props) {

@@ -4,7 +4,6 @@ import Favourites_addbutton from "./components/Favourites_addbutton";
 import { Container, Col, Row, Button } from "react-bootstrap";
 import { useMediaQuery } from "react-responsive";
 import styled from "styled-components";
-import MediaQuery from "react-responsive";
 import "./index.css";
 
 const Button_ = styled(Button)`
@@ -24,7 +23,6 @@ function App() {
   let userFavourites = [];
   let rows = 0;
   let productRows = [];
-  let buttoStatus = true;
 
   const isDesktopOrLaptop = useMediaQuery({
     query: "(min-width: 600px)"
@@ -94,17 +92,19 @@ function App() {
         </div>
       )}
       {isTabletOrMobileDevice && (
-        <div className="phoneconfig">
+        <div className="mobile_config">
           {userFavourites.map(Favourite => (
-            <Button_ variant="light" className="shadow-sm m-1">
+            <Button_
+              id="mobile_favouritesCart"
+              variant="light"
+              className="shadow-sm m-2"
+            >
               <Favourites_card data={Favourite} size={"30%"} />
             </Button_>
           ))}
-          <div className="phoneAddbutton">
+          <div className="mobile_Addbutton">
             <Favourites_addbutton data={setItems} Items={Items} />
           </div>
-          {/* 
-          <Favourites_addbutton data={setItems} Items={Items} /> */}
         </div>
       )}
     </Container>

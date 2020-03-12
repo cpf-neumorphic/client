@@ -25,8 +25,8 @@ function Favourites_card(props) {
       <Row>
         <h4 className="title">{header}</h4>
       </Row>
-      <Row>
-        <p className="body">{description}</p>
+      <Row className="hide">
+        <p className="body p">{description}</p>
       </Row>
     </Container>
   );
