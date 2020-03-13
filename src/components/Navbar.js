@@ -8,11 +8,11 @@ import CPFLogo from "../img/cpf-logo.png";
 
 const Nav = styled.nav`
 	background-color: white;
+	height: 80px;
 `;
 
-const StyledLink = styled(Link)`
-	color: black;
-	text-decoration: none;
+const Menu = styled.div`
+	margin-left: auto;
 `;
 
 export default props => {
@@ -20,18 +20,16 @@ export default props => {
 
 	return (
 		<Nav>
-			<Container className="d-flex">
-				<div>
-					<Link to="/">
-						<img src={CPFLogo} alt="CPFB Logo" style={{ height: "60px" }} />
-					</Link>
-				</div>
-				<div className="d-flex ml-auto">
-					<StyledLink to="#" className="py-3 px-2">
+			<Container className="h-100 d-flex align-items-center">
+				<Link to="/">
+					<img src={CPFLogo} alt="CPFB Logo" style={{ height: "60px" }} />
+				</Link>
+				<Menu>
+					<Link to="#">
 						<FontAwesomeIcon icon={faUser} className="mr-3" />
 						{name}
-					</StyledLink>
-				</div>
+					</Link>
+				</Menu>
 			</Container>
 		</Nav>
 	);
