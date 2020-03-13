@@ -3,6 +3,7 @@ import { Container, Row } from "react-bootstrap";
 import SectionHeader from "./components/SectionHeader";
 import LandingCard from "./components/LandingCard";
 import SearchBar from "./components/SearchBar";
+import SearchBar2 from "./components/SearchBar2";
 
 const styles = {
   Container: {
@@ -30,6 +31,7 @@ function App() {
         <Container>
           <br />
           <br />
+          <SearchBar2></SearchBar2>
           <SearchBar></SearchBar>
           <br />
           <br />
