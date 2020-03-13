@@ -1,23 +1,66 @@
 import React from "react";
-import { Container, Row } from "react-bootstrap";
 import styled from "styled-components";
 
 import SectionHeader from "../components/SectionHeader";
 import LandingCard from "../components/LandingCard";
-import SearchBar from "../components/SearchBar";
+// import SearchBar from "../components/SearchBar";
 
-const Greeting = styled.div`
+import helloImg from "../img/landing-hello.png";
+
+const Section = styled.section`
+	min-height: 90vh;
+`;
+
+const LandingGreen = styled.div`
 	background: #e4f9f5;
-	height: 60vh;
+	padding-bottom: 160px;
+	margin-bottom: -160px;
+	text-align: center;
+`;
+
+const Scrollable = styled.div`
+	display: flex;
+	justify-content: center;
+	width: 100%;
+
+	@media (max-width: 768px) {
+		justify-content: flex-start;
+		overflow-x: auto;
+	}
 `;
 
 export default props => {
 	return (
 		<>
-			<Greeting></Greeting>
+			<Section>
+				<LandingGreen>
+					<img
+						style={{ height: "120px", margin: "3rem 0 2rem 0" }}
+						alt="Hello there"
+						src={helloImg}
+						draggable="false"
+					/>
+					<h1>Hello, Adam</h1>
+					<p>What would you like to do today?</p>
+					<p>[SEARCH BAR]</p>
+				</LandingGreen>
+				<Scrollable>{landingCards}</Scrollable>
+			</Section>
+			<Section className="container">
+				<SectionHeader header="Recommended" text="These may be useful" />
+				<Scrollable>{landingCards}</Scrollable>
+			</Section>
 		</>
 	);
 };
+
+const landingCards = (
+	<>
+		<LandingCard icon="Zap" header="View" text="Your statements" />
+		<LandingCard icon="Bell" header="Manage" text="Your accounts" />
+		<LandingCard icon="Bell" header="Appointments" text="Create & modify" />
+	</>
+);
 
 // const styles = {
 // 	Container: {
