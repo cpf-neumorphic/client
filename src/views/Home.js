@@ -8,7 +8,7 @@ import LandingCard from "../components/LandingCard";
 import helloImg from "../img/landing-hello.png";
 
 const Section = styled.section`
-	min-height: 90vh;
+	margin-bottom: 4rem;
 `;
 
 const LandingGreen = styled.div`
@@ -20,7 +20,7 @@ const LandingGreen = styled.div`
 
 const Scrollable = styled.div`
 	display: flex;
-	justify-content: center;
+	justify-content: ${props => (props.center ? "center" : "space-between")};
 	width: 100%;
 
 	@media (max-width: 768px) {
@@ -30,6 +30,8 @@ const Scrollable = styled.div`
 `;
 
 export default props => {
+	const name = props.name || "Adam";
+
 	return (
 		<>
 			<Section>
@@ -40,13 +42,17 @@ export default props => {
 						src={helloImg}
 						draggable="false"
 					/>
-					<h1>Hello, Adam</h1>
+					<h1>Hello, {name}</h1>
 					<p>What would you like to do today?</p>
 					<p>[SEARCH BAR]</p>
 				</LandingGreen>
+				<Scrollable center>{landingCards}</Scrollable>
+			</Section>
+			<Section>
+				<SectionHeader header="Favourites" text="You mostly used these" />
 				<Scrollable>{landingCards}</Scrollable>
 			</Section>
-			<Section className="container">
+			<Section>
 				<SectionHeader header="Recommended" text="These may be useful" />
 				<Scrollable>{landingCards}</Scrollable>
 			</Section>
