@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Container from "react-bootstrap/Container";
 
 import SectionHeader from "../components/SectionHeader";
 import LandingCard from "../components/LandingCard";
@@ -18,13 +19,14 @@ const LandingGreen = styled.div`
 	text-align: center;
 `;
 
-const Scrollable = styled.div`
+const Scrollable = styled(Container)`
 	display: flex;
 	justify-content: ${props => (props.center ? "center" : "space-between")};
-	width: 100%;
+	flex-wrap: wrap;
 
 	@media (max-width: 768px) {
 		justify-content: flex-start;
+		flex-wrap: nowrap;
 		overflow-x: auto;
 	}
 `;
@@ -36,15 +38,17 @@ export default props => {
 		<>
 			<Section>
 				<LandingGreen>
-					<img
-						style={{ height: "120px", margin: "3rem 0 2rem 0" }}
-						alt="Hello there"
-						src={helloImg}
-						draggable="false"
-					/>
-					<h1>Hello, {name}</h1>
-					<p>What would you like to do today?</p>
-					<p>[SEARCH BAR]</p>
+					<div className="container">
+						<img
+							style={{ height: "120px", margin: "2rem auto" }}
+							alt="Hello there"
+							src={helloImg}
+							draggable="false"
+						/>
+						<h1>Hello, {name}</h1>
+						<p>What would you like to do today?</p>
+						<p>[SEARCH BAR]</p>
+					</div>
 				</LandingGreen>
 				<Scrollable center>{landingCards}</Scrollable>
 			</Section>
@@ -64,6 +68,8 @@ const landingCards = (
 	<>
 		<LandingCard icon="Zap" header="View" text="Your statements" />
 		<LandingCard icon="Bell" header="Manage" text="Your accounts" />
+		<LandingCard icon="Bell" header="Appointments" text="Create & modify" />
+		<LandingCard icon="Bell" header="Appointments" text="Create & modify" />
 		<LandingCard icon="Bell" header="Appointments" text="Create & modify" />
 	</>
 );
