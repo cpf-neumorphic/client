@@ -11,12 +11,12 @@ function App() {
 		<Router>
 			<div className="d-flex flex-column min-vh-100">
 				<div className="flex-grow-1">
-					<Navbar></Navbar>
+					<Navbar />
 					<main>
 						<Switch>{routes}</Switch>
 					</main>
 				</div>
-				<Footer></Footer>
+				<Footer />
 			</div>
 		</Router>
 	);
