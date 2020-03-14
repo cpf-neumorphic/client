@@ -1,0 +1,23 @@
+.title {
+  font-family: "Lato", sans-serif;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font: auto bold;
+  text-align: left;
+}
+
+.body {
+  font-family: "Lato", sans-serif;
+  height: 120px;
+  font-size: auto;
+  text-align: left;
+  overflow-y: hidden;
+  /* display: flex; */
+}
+
+@media only screen and (max-width: 600px) {
+  .p {
+    font-size: 0;
+    display: none;
+  }
+}

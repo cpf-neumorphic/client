@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "icon": "FaHome",
+    "header": "CPF HOUSING Usage",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
+    "status": true
+  },
+  {
+    "id": 2,
+    "icon": "FaCalculator",
+    "header": "Mortgage Calculator",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Wres bes awer.",
+    "status": false
+  },
+  {
+    "id": 3,
+    "icon": "FaHome",
+    "header": "CPF HOUSING Usage",
+    "description": "Hard choices, easy life. Easy choices, hard life.",
+    "status": true
+  },
+  {
+    "id": 4,
+    "icon": "FaGraduationCap",
+    "header": "Education",
+    "description": "Education is an admirable thing, but it is well to remember from time to time that nothing that is worth knowing can be taught.",
+    "status": false
+  },
+  {
+    "id": 5,
+    "icon": "FaRegMoneyBillAlt",
+    "header": "Investment",
+    "description": "Description hello mother fucker",
+    "status": false
+  },
+  {
+    "id": 6,
+    "icon": "FaRegStickyNote",
+    "header": "Statements",
+    "description": "Description hello mother fucker",
+    "status": false
+  }
+]
