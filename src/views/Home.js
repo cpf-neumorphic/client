@@ -25,9 +25,13 @@ const Scrollable = styled(Container)`
 	flex-wrap: wrap;
 
 	@media (max-width: 768px) {
+		display: absolute;
 		justify-content: flex-start;
 		flex-wrap: nowrap;
 		overflow-x: auto;
+		margin: 0;
+		padding: 0;
+		max-width: none;
 	}
 `;
 
