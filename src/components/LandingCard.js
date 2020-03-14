@@ -96,7 +96,7 @@ const Text = styled.p`
 	font-size: 16px;
 	font-weight: 400;
 	height: auto;
-	margin: 10px 0px 0px 0px;
+	// margin: 10px 0px 0px 0px;
 	text-align: center;
 	width: auto;
 	max-width: 100%;
