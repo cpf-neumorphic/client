@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import Col from "react-bootstrap/Col";
 import * as IconName from "@styled-icons/octicons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 const Wrapper = styled.div`
 	align-content: center;
@@ -104,7 +103,7 @@ const Text = styled.p`
 `;
 
 export default props => {
-	const dynamic = props.Icon;
+	// const dynamic = props.Icon;
 	const StyledIcon = styled(IconName.Infinity)`
 		width: 25px;
 	`;
