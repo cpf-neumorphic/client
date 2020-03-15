@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import Container from "react-bootstrap/Container";
 
+import Scrollable from "../components/Scrollable";
 import SectionHeader from "../components/SectionHeader";
 import LandingCard from "../components/LandingCard";
+import Favourites from "../components/Favourites";
 // import SearchBar from "../components/SearchBar";
 
 import helloImg from "../img/landing-hello.png";
@@ -17,22 +18,6 @@ const LandingGreen = styled.div`
 	padding-bottom: 160px;
 	margin-bottom: -160px;
 	text-align: center;
-`;
-
-const Scrollable = styled(Container)`
-	display: flex;
-	justify-content: ${props => (props.center ? "center" : "space-between")};
-	flex-wrap: wrap;
-
-	@media (max-width: 768px) {
-		display: absolute;
-		justify-content: flex-start;
-		flex-wrap: nowrap;
-		overflow-x: auto;
-		margin: 0;
-		padding: 0;
-		max-width: none;
-	}
 `;
 
 export default props => {
@@ -54,11 +39,13 @@ export default props => {
 						<p>[SEARCH BAR]</p>
 					</div>
 				</LandingGreen>
-				<Scrollable center>{landingCards}</Scrollable>
+				<Scrollable center={1}>{landingCards}</Scrollable>
 			</Section>
 			<Section>
 				<SectionHeader header="Favourites" text="You mostly used these" />
-				<Scrollable>{landingCards}</Scrollable>
+				<Scrollable>
+					<Favourites />
+				</Scrollable>
 			</Section>
 			<Section>
 				<SectionHeader header="Recommended" text="These may be useful" />
