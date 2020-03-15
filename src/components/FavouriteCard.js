@@ -5,7 +5,6 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
 	padding: 15px;
-	cursor: pointer;
 `;
 
 const Card = styled.div`
@@ -14,6 +13,7 @@ const Card = styled.div`
 	height: 280px;
 	border-radius: 20px;
 	overflow: hidden;
+	cursor: pointer;
 
 	&:hover {
 		box-shadow: 0 5px 15px 0 rgba(70, 70, 70, 0.5);
