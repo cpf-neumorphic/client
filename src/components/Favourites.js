@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Modal } from "react-bootstrap";
+import { Modal, Button } from "react-bootstrap";
 
 import Scrollable from "./Scrollable";
 import FavouriteCard from "./FavouriteCard";
@@ -67,7 +67,7 @@ export default function Favourites(props) {
 					<Scrollable>{allFavourites}</Scrollable>
 				</Modal.Body>
 				<Modal.Footer>
-					<button onClick={handleSave}>Save</button>
+					<Button onClick={handleSave}>Save</Button>
 				</Modal.Footer>
 			</Modal>
 		</>
