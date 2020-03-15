@@ -1,11 +1,13 @@
 import React from "react";
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import * as FAIcon from "react-icons/fa";
+import { IoMdCloseCircle } from "react-icons/io";
 import { IconContext } from "react-icons";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
+	position: relative;
 	padding: 15px;
-	cursor: pointer;
 `;
 
 const Card = styled.div`
@@ -15,6 +17,7 @@ const Card = styled.div`
 	border-radius: 20px;
 	overflow: hidden;
 	text-align: center;
+	cursor: pointer;
 
 	&:hover {
 		box-shadow: 0 5px 15px 0 rgba(70, 70, 70, 0.5);
@@ -46,7 +49,7 @@ const Card = styled.div`
 	}}
 `;
 
-const Circle = styled.div`
+const IconCircle = styled.div`
 	width: 70px;
 	height: 70px;
 	border-radius: 40px;
@@ -54,6 +57,12 @@ const Circle = styled.div`
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
+`;
+
+const RemoveWrapper = styled.div`
+	position: absolute;
+	top: 8px;
+	right: 8px;
 `;
 
 const defaults = require("../asset/recommendations.json")["0"];
@@ -65,12 +74,20 @@ export default function FavouritesCard(props) {
 
 	return (
 		<Wrapper onClick={handleClick}>
+			<RemoveWrapper>
+				<OverlayTrigger
+					placement="left"
+					overlay={<Tooltip>Not relevant</Tooltip>}
+				>
+					<IoMdCloseCircle size="28px" color="#828282" />
+				</OverlayTrigger>
+			</RemoveWrapper>
 			<Card selected={selected}>
-				<Circle>
+				<IconCircle>
 					<IconContext.Provider value={{ color: "white", size: "36px" }}>
 						{React.createElement(FAIcon[icon])}
 					</IconContext.Provider>
-				</Circle>
+				</IconCircle>
 				<h2 className="my-2">
 					{title.length > 25 ? title.substring(0, 25) + "..." : title}
 				</h2>
