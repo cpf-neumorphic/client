@@ -5,12 +5,13 @@ import Scrollable from "./Scrollable";
 import FavouritesCard from "./FavouritesCard";
 import FavouritesAddButton from "./FavouritesAddButton";
 
-const defaults = [0, 1, 2];
+const defaults = ["0", "1"];
 const all_favourites = require("../asset/favourites.json");
 
 export default function Favourites(props) {
 	const [favourites, setFavourites] = useState(props.userFavouries || defaults);
-	const [showFavModal, setFavModal] = useState(false);
+	const [pendingFavourites, setPendingFavourites] = useState([]);
+	const [isVisibleModal, setVisibleModal] = useState(false);
 
 	const currFavourites = favourites.map(id => {
 		const data = all_favourites[id];
@@ -19,21 +20,44 @@ export default function Favourites(props) {
 
 	const allFavourites = Object.keys(all_favourites).map(id => {
 		const data = all_favourites[id];
-		return <FavouritesCard key={id} data={data} />;
+		const selected = pendingFavourites.includes(id);
+
+		return (
+			<FavouritesCard
+				key={id}
+				data={data}
+				selected={selected}
+				onClick={() => {
+					if (pendingFavourites.includes(id)) {
+						// Remove
+						const index = pendingFavourites.indexOf(id);
+						const arr = [...pendingFavourites];
+						arr.splice(index, 1);
+						setPendingFavourites(arr);
+					} else {
+						setPendingFavourites([...pendingFavourites, id]);
+					}
+				}}
+			/>
+		);
 	});
 
-	const handleClose = () => setFavModal(false);
-	const handleSave = () => {};
+	const handleClose = () => setVisibleModal(false);
+	const handleSave = () => {
+		setFavourites(pendingFavourites);
+		handleClose();
+	};
 
 	const addButtonHandler = () => {
-		setFavModal(true);
+		setPendingFavourites([...favourites]);
+		setVisibleModal(true);
 	};
 
 	return (
 		<>
-			<FavouritesAddButton addButtonHandler={addButtonHandler} />
 			{currFavourites}
-			<Modal show={showFavModal} onHide={handleClose} centered>
+			<FavouritesAddButton addButtonHandler={addButtonHandler} />
+			<Modal show={isVisibleModal} onHide={handleClose} centered>
 				<Modal.Header closeButton>
 					<Modal.Title>
 						<h3>Add Favourites</h3>
@@ -43,7 +67,7 @@ export default function Favourites(props) {
 					<Scrollable>{allFavourites}</Scrollable>
 				</Modal.Body>
 				<Modal.Footer>
-					<button>Save</button>
+					<button onClick={handleSave}>Save</button>
 				</Modal.Footer>
 			</Modal>
 		</>

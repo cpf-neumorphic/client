@@ -31,27 +31,3 @@ code {
 	max-height: 70vh;
 	overflow: auto;
 }
-
-/* .mobile_config {
-	background-color: rgb(255, 255, 255);
-	width: 100%;
-	height: 100%;
-	padding: 20px;
-	padding-left: 50px;
-	overflow-x: scroll;
-	overflow-y: hidden;
-	display: flex;
-} */
-
-/* .mobile_config::-webkit-scrollbar {
-	width: 0;
-	height: 0;
-} */
-
-/* .mobile_Addbutton {
-	padding-top: 50px;
-}
-
-#mobile_favouritesCart {
-	height: 200px;
-} */
