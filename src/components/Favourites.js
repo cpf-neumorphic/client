@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 
 import Scrollable from "./Scrollable";
-import FavouritesCard from "./FavouritesCard";
-import FavouritesAddButton from "./FavouritesAddButton";
+import FavouriteCard from "./FavouriteCard";
+import FavouriteAddButton from "./FavouriteAddButton";
 
 const defaults = ["0", "1"];
 const all_favourites = require("../asset/favourites.json");
@@ -15,7 +15,7 @@ export default function Favourites(props) {
 
 	const currFavourites = favourites.map(id => {
 		const data = all_favourites[id];
-		return <FavouritesCard key={id} data={data} />;
+		return <FavouriteCard key={id} data={data} />;
 	});
 
 	const allFavourites = Object.keys(all_favourites).map(id => {
@@ -23,7 +23,7 @@ export default function Favourites(props) {
 		const selected = pendingFavourites.includes(id);
 
 		return (
-			<FavouritesCard
+			<FavouriteCard
 				key={id}
 				data={data}
 				selected={selected}
@@ -56,7 +56,7 @@ export default function Favourites(props) {
 	return (
 		<>
 			{currFavourites}
-			<FavouritesAddButton addButtonHandler={addButtonHandler} />
+			<FavouriteAddButton addButtonHandler={addButtonHandler} />
 			<Modal show={isVisibleModal} onHide={handleClose} centered>
 				<Modal.Header closeButton>
 					<Modal.Title>
