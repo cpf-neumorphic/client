@@ -4,9 +4,16 @@ import { IconContext } from "react-icons";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-	width: 250px;
-	height: 250px;
-	flex-shrink: 0;
+	padding: 15px;
+	cursor: pointer;
+`;
+
+const Card = styled.div`
+	padding: 20px;
+	width: 280px;
+	height: 280px;
+	border-radius: 20px;
+	overflow: hidden;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -24,6 +31,11 @@ const Button = styled.div`
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
+
+	&:hover {
+		box-shadow: 0 5px 15px 0 rgba(70, 70, 70, 0.5);
+		transition: all 0.5s ease-out;
+	}
 `;
 
 export default function AddButton(props) {
@@ -31,16 +43,18 @@ export default function AddButton(props) {
 
 	return (
 		<Wrapper>
-			<Button
-				onClick={() => {
-					addButtonHandler();
-				}}
-			>
-				<IconContext.Provider value={{ color: "#ffffff", size: "36px" }}>
-					<MdAddCircle />
-				</IconContext.Provider>
-			</Button>
-			<p>Add items</p>
+			<Card>
+				<Button
+					onClick={() => {
+						addButtonHandler();
+					}}
+				>
+					<IconContext.Provider value={{ color: "#ffffff", size: "36px" }}>
+						<MdAddCircle />
+					</IconContext.Provider>
+				</Button>
+				<p>Add items</p>
+			</Card>
 		</Wrapper>
 	);
 }

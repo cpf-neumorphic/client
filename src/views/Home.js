@@ -60,8 +60,6 @@ const landingCards = (
 		<LandingCard icon="Zap" header="View" text="Your statements" />
 		<LandingCard icon="Bell" header="Manage" text="Your accounts" />
 		<LandingCard icon="Bell" header="Appointments" text="Create & modify" />
-		<LandingCard icon="Bell" header="Appointments" text="Create & modify" />
-		<LandingCard icon="Bell" header="Appointments" text="Create & modify" />
 	</>
 );
 
