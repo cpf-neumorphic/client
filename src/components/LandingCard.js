@@ -102,11 +102,13 @@ const Text = styled.p`
 	justify-content: center;
 `;
 
+const StyledIcon = styled(IconName.Infinity)`
+	width: 25px;
+`;
+
 export default props => {
 	// const dynamic = props.Icon;
-	const StyledIcon = styled(IconName.Infinity)`
-		width: 25px;
-	`;
+
 	return (
 		<>
 			<Wrapper onclick="location.href='#';">
