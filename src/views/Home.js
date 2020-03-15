@@ -5,6 +5,7 @@ import Scrollable from "../components/Scrollable";
 import SectionHeader from "../components/SectionHeader";
 import LandingCard from "../components/LandingCard";
 import Favourites from "../components/Favourites";
+import RecommendCard from "../components/RecommendCard";
 // import SearchBar from "../components/SearchBar";
 
 import helloImg from "../img/landing-hello.png";
@@ -49,7 +50,9 @@ export default props => {
 			</Section>
 			<Section>
 				<SectionHeader header="Recommended" text="These may be useful" />
-				<Scrollable>{landingCards}</Scrollable>
+				<Scrollable>
+					<RecommendCard />
+				</Scrollable>
 			</Section>
 		</>
 	);
