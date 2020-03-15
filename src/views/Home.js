@@ -54,7 +54,7 @@ export default props => {
 						<p>[SEARCH BAR]</p>
 					</div>
 				</LandingGreen>
-				<Scrollable center>{landingCards}</Scrollable>
+				<Scrollable center={1}>{landingCards}</Scrollable>
 			</Section>
 			<Section>
 				<SectionHeader header="Favourites" text="You mostly used these" />
