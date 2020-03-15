@@ -4,7 +4,7 @@ import { IconContext } from "react-icons";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-	margin: 20px;
+	// margin: 20px;
 	padding: 15px;
 `;
 
@@ -15,21 +15,12 @@ const Card = styled.div`
 	border-radius: 20px;
 	box-shadow: 0 5px 15px 0 rgba(70, 70, 70, 0.15);
 	overflow: hidden;
-
-	& > p {
-		max-height: 80px;
-		overflow: hidden;
-	}
 `;
 
+const defaults = require("../asset/favourites.json")["0"];
+
 export default function FavouritesCard(props) {
-	const { icon, header, description } = props.data || {
-		// Defaults
-		icon: "FaHome",
-		header: "CPF Housing Usage",
-		description:
-			"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna."
-	};
+	const { icon, title, description } = props.data || defaults;
 
 	return (
 		<Wrapper>
@@ -37,7 +28,9 @@ export default function FavouritesCard(props) {
 				<IconContext.Provider value={{ color: "11999e", size: "64px" }}>
 					{React.createElement(MaterialDesign[icon])}
 				</IconContext.Provider>
-				<h2 className="my-2">{header}</h2>
+				<h2 className="my-2">
+					{title.length > 25 ? title.substring(0, 25) + "..." : title}
+				</h2>
 				<p>
 					{description.length > 85
 						? description.substring(0, 85) + "..."
