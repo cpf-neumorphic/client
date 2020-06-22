@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 
 import SectionHeader from "../components/SectionHeader";
 import LandingCard from "../components/LandingCard";
-// import SearchBar from "../components/SearchBar";
+import SearchBar from "../components/SearchBar2";
 
 import helloImg from "../img/landing-hello.png";
 
@@ -47,7 +47,7 @@ export default props => {
 						/>
 						<h1>Hello, {name}</h1>
 						<p>What would you like to do today?</p>
-						<p>[SEARCH BAR]</p>
+						<SearchBar></SearchBar>
 					</div>
 				</LandingGreen>
 				<Scrollable center>{landingCards}</Scrollable>
