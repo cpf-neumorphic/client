@@ -10,7 +10,7 @@ const StyledButton = styled(Button)`
     // border-style: solid;
     //   text-align: left;
     // margin-top: 50px;
-    height: 300px;
+    height: 280px;
     width: 100%;
     padding-right: 50px;
     padding-bottom: 50px;
@@ -66,7 +66,7 @@ function Favourites_addon(props) {
                 <Row className="m-2">
                   {tempFavourites.Favourites.map(Favourite =>
                     Favourite.status ? (
-                      <Col sm={4}>
+                      <Col sm={4} key={Favourite.id}>
                         <StyledButton
                           bsPrefix="styledButton-green"
                           // className="background"
@@ -83,7 +83,7 @@ function Favourites_addon(props) {
                         </StyledButton>
                       </Col>
                     ) : (
-                      <Col sm={4}>
+                      <Col sm={4} key={Favourite.id}>
                         <StyledButton
                           bsPrefix="styledButton-gray"
                           // variant="light"
