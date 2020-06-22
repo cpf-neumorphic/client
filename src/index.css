@@ -1,24 +1,33 @@
-.mobile_config {
-  background-color: rgb(255, 255, 255);
-  width: 100%;
-  height: 100%;
-  padding: 20px;
-  padding-left: 50px;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  display: flex;
+body {
+	margin: 0;
+	font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+		"Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+		"Helvetica Neue", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
-.mobile_config::-webkit-scrollbar {
-  /* WebKit */
-  width: 0;
-  height: 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: "Quicksand", serif;
+	font-weight: 700;
 }
 
-.mobile_Addbutton {
-  padding-top: 50px;
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+		monospace;
 }
 
-#mobile_favouritesCart {
-  height: 200px;
+.modal-dialog {
+	max-width: 75vw;
+	margin: auto;
+}
+.modal-body {
+	padding: 0;
+	max-height: 70vh;
+	overflow: auto;
 }

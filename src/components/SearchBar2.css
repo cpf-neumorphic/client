@@ -1,0 +1,11 @@
+.selectup{
+    /* height: 100px; */
+}
+
+.selectup:focus + .change{
+    height: 1000px;
+}
+
+/* .react-select__menu {
+    height: 10px !important;
+  } */
