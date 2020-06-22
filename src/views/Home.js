@@ -1,15 +1,15 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import Scrollable from '../components/Scrollable';
-import SectionHeader from '../components/SectionHeader';
-import LandingCard from '../components/LandingCard';
-import SearchBar from '../components/SearchBar2';
-import Favourites from '../components/Favourites';
-import RecommendCard from '../components/RecommendCard';
+import Scrollable from "../components/Scrollable";
+import SectionHeader from "../components/SectionHeader";
+import LandingCard from "../components/LandingCard";
+import SearchBar from "../components/SearchBar2";
+import Favourites from "../components/Favourites";
+import RecommendCard from "../components/RecommendCard";
 // import SearchBar from "../components/SearchBar";
 
-import helloImg from '../img/landing-hello.png';
+import helloImg from "../img/landing-hello.png";
 
 const Section = styled.section`
   margin-bottom: 4rem;
@@ -23,7 +23,7 @@ const LandingGreen = styled.div`
 `;
 
 export default (props) => {
-  const name = props.name || 'Adam';
+  const name = props.name || "Adam";
 
   return (
     <>
@@ -31,7 +31,7 @@ export default (props) => {
         <LandingGreen>
           <div className="container">
             <img
-              style={{ height: '120px', margin: '2rem auto' }}
+              style={{ height: "120px", margin: "2rem auto" }}
               alt="Hello there"
               src={helloImg}
               draggable="false"

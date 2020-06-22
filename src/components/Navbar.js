@@ -7,30 +7,30 @@ import Container from "react-bootstrap/Container";
 import CPFLogo from "../img/cpf-logo.png";
 
 const Nav = styled.nav`
-	background-color: white;
-	height: 80px;
+  background-color: white;
+  height: 80px;
 `;
 
 const Menu = styled.div`
-	margin-left: auto;
+  margin-left: auto;
 `;
 
-export default props => {
-	const name = props.name || "Adam";
+export default (props) => {
+  const name = props.name || "Adam";
 
-	return (
-		<Nav>
-			<Container className="h-100 d-flex align-items-center">
-				<Link to="/">
-					<img src={CPFLogo} alt="CPFB Logo" style={{ height: "60px" }} />
-				</Link>
-				<Menu>
-					<Link to="#">
-						<FontAwesomeIcon icon={faUser} className="mr-3" />
-						{name}
-					</Link>
-				</Menu>
-			</Container>
-		</Nav>
-	);
+  return (
+    <Nav>
+      <Container className="h-100 d-flex align-items-center">
+        <Link to="/">
+          <img src={CPFLogo} alt="CPFB Logo" style={{ height: "60px" }} />
+        </Link>
+        <Menu>
+          <Link to="#">
+            <FontAwesomeIcon icon={faUser} className="mr-3" />
+            {name}
+          </Link>
+        </Menu>
+      </Container>
+    </Nav>
+  );
 };
