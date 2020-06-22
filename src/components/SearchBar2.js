@@ -6,11 +6,27 @@ import makeAnimated from "react-select/animated";
 import { useHistory } from "react-router-dom";
 import "./SearchBar2.css";
 
+var viewStr = "VIEW";
+var viewStrBold = viewStr.bold();
+
 const options = [
+<<<<<<< master
   { label: "Education", value: "education" },
   { label: "Housing", value: "housing" },
   { label: "Investments", value: "investments" },
   { label: "Statements", value: "statements" },
+=======
+  { label: <b>View</b>, value: "#" },
+  {
+    label: "🎓" + "\xa0\xa0" + "Education",
+    value: "education",
+  },
+  { label: <b>Manage</b>, value: "#" },
+  { label: "🏘️" + "\xa0\xa0" + "Housing", value: "housing" },
+  { label: <b>Appointments</b>, value: "#" },
+  { label: "💰" + "\xa0\xa0" + "Investments", value: "investments" },
+  { label: "📝" + "\xa0\xa0" + "Statements", value: "statements" },
+>>>>>>> Added section headers
 ];
 
 const styledSelect = {
