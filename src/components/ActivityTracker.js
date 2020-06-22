@@ -1,15 +1,15 @@
 import React from "react";
 import IdleTimer from "react-idle-timer";
 
-const _onAction = e => {
+const _onAction = (e) => {
   console.log("user did something", e);
 };
 
-const _onActive = e => {
+const _onActive = (e) => {
   console.log("user is active", e);
 };
 
-const _onIdle = e => {
+const _onIdle = (e) => {
   // send *sendInfor* to API
   let sendInfor = null;
   console.log("user is idle", e);
@@ -19,9 +19,9 @@ const _onIdle = e => {
     Usage: [
       {
         page_id: window.location.pathname,
-        time_spent: idleTimer.getElapsedTime()
-      }
-    ]
+        time_spent: idleTimer.getElapsedTime(),
+      },
+    ],
   };
   console.log(sendInfor);
 };
@@ -32,18 +32,18 @@ let onActive = _onActive.bind(this);
 let onIdle = _onIdle.bind(this);
 const timeout = 5000;
 
-const ActivityTracker = () => (
-  <IdleTimer
-    ref={ref => {
-      idleTimer = ref;
-    }}
-    element={document}
-    onActive={onActive}
-    onIdle={onIdle}
-    onAction={onAction}
-    debounce={250}
-    timeout={timeout}
-  />
-);
-
-export default ActivityTracker;
+export default function ActivityTracker(props) {
+  return (
+    <IdleTimer
+      ref={(ref) => {
+        idleTimer = ref;
+      }}
+      element={document}
+      onActive={onActive}
+      onIdle={onIdle}
+      onAction={onAction}
+      debounce={250}
+      timeout={timeout}
+    />
+  );
+}
