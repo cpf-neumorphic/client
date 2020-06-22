@@ -1,65 +1,141 @@
-export default {
-  "0": {
-    slug: "/ordinary_account",
-    icon: "FaHome",
-    title: "Ordinary Account (OA)",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
+/**
+ * Page definition
+ * @typedef {Object} Page
+ * @property {number} pageId - Page ID
+ * @property {string} pageIcon - Card icon
+ * @property {string} pageSlug - Page slug
+ * @property {string} pageTitle - Page title
+ * @property {string} pageDescription - Page description
+ */
+
+/**
+ * CategoryGroup definition
+ * @typedef {Object} CategoryGroup
+ * @property {number} categoryId - Category ID
+ * @property {string} categoryLabel - Category label
+ * @property {Array.<Page>} categoryPages - Pages belonging to the category
+ */
+
+/** @type {Array.<CategoryGroup>} */
+const dictionary = [
+  {
+    categoryId: 0,
+    categoryLabel: "View",
+    categoryPages: [
+      {
+        pageId: 0,
+        pageSlug: "/ordinary_account",
+        pageIcon: "FaHome",
+        pageTitle: "Ordinary Account (OA)",
+        pageDescription:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
+      },
+      {
+        pageId: 1,
+        pageSlug: "/special_account",
+        pageIcon: "FaCalculator",
+        pageTitle: "Special Account (SA)",
+        pageDescription:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
+      },
+      {
+        pageId: 2,
+        pageSlug: "/medisave_account",
+        pageIcon: "FaHome",
+        pageTitle: "Medisave Account (MA)",
+        pageDescription:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
+      },
+      {
+        pageId: 3,
+        pageSlug: "/giro_replayment",
+        pageIcon: "FaHome",
+        pageTitle: "Apply/change GIRO for Repayment of Education Loan",
+        pageDescription:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
+      },
+    ],
   },
-  "1": {
-    slug: "/special_account",
-    icon: "FaCalculator",
-    title: "Special Account (SA)",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
+  {
+    categoryId: 1,
+    categoryLabel: "Manage",
+    categoryPages: [
+      {
+        pageId: 4,
+        pageSlug: "/defer_repayment",
+        pageIcon: "FaHome",
+        pageTitle: "Defer repayment",
+        pageDescription:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
+      },
+      {
+        pageId: 5,
+        pageSlug: "/monthly_instalment",
+        pageIcon: "FaHome",
+        pageTitle: "Change monthly instalment",
+        pageDescription:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
+      },
+      {
+        pageId: 6,
+        pageSlug: "/cpfis_saq",
+        pageIcon: "FaHome",
+        pageTitle: "CPFIS Self-Awareness Questionnaire (SAQ) Status",
+        pageDescription:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
+      },
+    ],
   },
-  "2": {
-    slug: "/medisave_account",
-    icon: "FaHome",
-    title: "Medisave Account (MA)",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
+  {
+    categoryId: 2,
+    categoryLabel: "Appointments",
+    categoryPages: [
+      {
+        pageId: 7,
+        pageSlug: "/withdraw",
+        pageIcon: "FaHome",
+        pageTitle: "Apply to Withdraw",
+        pageDescription:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
+      },
+      {
+        pageId: 8,
+        pageSlug: "/transfer",
+        pageIcon: "FaHome",
+        pageTitle: "Apply to Transfer",
+        pageDescription:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
+      },
+    ],
   },
-  "3": {
-    slug: "/giro_replayment",
-    icon: "FaHome",
-    title: "Apply/change GIRO for Repayment of Education Loan",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
-  },
-  "4": {
-    slug: "/defer_repayment",
-    icon: "FaHome",
-    title: "Defer repayment",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
-  },
-  "5": {
-    slug: "/monthly_instalment",
-    icon: "FaHome",
-    title: "Change monthly instalment",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
-  },
-  "6": {
-    slug: "/cpfis_saq",
-    icon: "FaHome",
-    title: "CPFIS Self-Awareness Questionnaire (SAQ) Status",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
-  },
-  "7": {
-    slug: "/withdraw",
-    icon: "FaHome",
-    title: "Apply to Withdraw",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
-  },
-  "8": {
-    slug: "/transfer",
-    icon: "FaHome",
-    title: "Apply to Transfer",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
-  },
+];
+
+/**
+ * Find the corresponding pageId from pageSlug. Will return -1 if not found.
+ * @param {string} pageSlug
+ * @returns {number} pageId of given pageSlug
+ */
+const getPageIdFromSlug = (pageSlug) => {
+  for (let { categoryPages } of dictionary) {
+    for (let page of categoryPages) {
+      if (page.pageSlug === pageSlug) return page.pageId;
+    }
+  }
+
+  return -1; // Not found
 };
+
+/**
+ * Find the corresponding categoryLabel from categoryId. Will return -1 if not found.
+ * @param {number} categoryId
+ * @returns {(string|number)} categoryLabel of given categoryId
+ */
+const getCategoryLabelFromId = (categoryId) => {
+  const categoryGroup = dictionary.find((grp) => grp.categoryId === categoryId);
+
+  if (categoryGroup) return categoryGroup.categoryLabel;
+  return -1; // Not found
+};
+
+export default dictionary;
+export { getPageIdFromSlug, getCategoryLabelFromId };
