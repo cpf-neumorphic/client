@@ -21,3 +21,13 @@ code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 		monospace;
 }
+
+.modal-dialog {
+	max-width: 75vw;
+	margin: auto;
+}
+.modal-body {
+	padding: 0;
+	max-height: 70vh;
+	overflow: auto;
+}

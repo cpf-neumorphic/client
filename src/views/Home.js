@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import Container from "react-bootstrap/Container";
 
+import Scrollable from "../components/Scrollable";
 import SectionHeader from "../components/SectionHeader";
 import LandingCard from "../components/LandingCard";
 import SearchBar from "../components/SearchBar2";
+import Favourites from "../components/Favourites";
+import RecommendCard from "../components/RecommendCard";
+// import SearchBar from "../components/SearchBar";
 
 import helloImg from "../img/landing-hello.png";
 
@@ -17,18 +20,6 @@ const LandingGreen = styled.div`
 	padding-bottom: 160px;
 	margin-bottom: -160px;
 	text-align: center;
-`;
-
-const Scrollable = styled(Container)`
-	display: flex;
-	justify-content: ${props => (props.center ? "center" : "space-between")};
-	flex-wrap: wrap;
-
-	@media (max-width: 768px) {
-		justify-content: flex-start;
-		flex-wrap: nowrap;
-		overflow-x: auto;
-	}
 `;
 
 export default props => {
@@ -50,15 +41,19 @@ export default props => {
 						<SearchBar></SearchBar>
 					</div>
 				</LandingGreen>
-				<Scrollable center>{landingCards}</Scrollable>
+				<Scrollable center={1}>{landingCards}</Scrollable>
 			</Section>
 			<Section>
 				<SectionHeader header="Favourites" text="You mostly used these" />
-				<Scrollable>{landingCards}</Scrollable>
+				<Scrollable>
+					<Favourites />
+				</Scrollable>
 			</Section>
 			<Section>
 				<SectionHeader header="Recommended" text="These may be useful" />
-				<Scrollable>{landingCards}</Scrollable>
+				<Scrollable>
+					<RecommendCard />
+				</Scrollable>
 			</Section>
 		</>
 	);
@@ -68,8 +63,6 @@ const landingCards = (
 	<>
 		<LandingCard icon="Zap" header="View" text="Your statements" />
 		<LandingCard icon="Bell" header="Manage" text="Your accounts" />
-		<LandingCard icon="Bell" header="Appointments" text="Create & modify" />
-		<LandingCard icon="Bell" header="Appointments" text="Create & modify" />
 		<LandingCard icon="Bell" header="Appointments" text="Create & modify" />
 	</>
 );
