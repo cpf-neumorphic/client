@@ -87,7 +87,7 @@ const dictionary = [
     ],
   },
   {
-    id: 3,
+    id: 2,
     category: "Appointments",
     pages: [
       {
