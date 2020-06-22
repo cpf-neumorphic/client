@@ -18,15 +18,46 @@ const options = [
 =======
   { label: <b>View</b>, value: "#" },
   {
-    label: "🎓" + "\xa0\xa0" + "Education",
+    label: "🎞️" + "\xa0\xa0" + "Online Demos",
+    value: "education",
+  },
+  {
+    label: "💸" + "\xa0\xa0" + "GIRO Application Status",
+    value: "education",
+  },
+  {
+    label: "📝" + "\xa0\xa0" + "Transaction History Statement",
+    value: "education",
+  },
+  {
+    label: "📝" + "\xa0\xa0" + "Contribution History Statement",
     value: "education",
   },
   { label: <b>Manage</b>, value: "#" },
-  { label: "🏘️" + "\xa0\xa0" + "Housing", value: "housing" },
+  { label: "☎️" + "\xa0\xa0" + "Contact Information", value: "housing" },
+  {
+    label: "👴" + "\xa0\xa0" + "Top up my Retirement Account",
+    value: "housing",
+  },
+  {
+    label: "🎓" + "\xa0\xa0" + "Repayment of Education Loan",
+    value: "housing",
+  },
   { label: <b>Appointments</b>, value: "#" },
+<<<<<<< master
   { label: "💰" + "\xa0\xa0" + "Investments", value: "investments" },
   { label: "📝" + "\xa0\xa0" + "Statements", value: "statements" },
 >>>>>>> Added section headers
+=======
+  {
+    label: "📅" + "\xa0\xa0" + "CPF Appointment Service",
+    value: "investments",
+  },
+  {
+    label: "💉" + "\xa0\xa0" + "CPF e-Medical Appointment Service",
+    value: "statements",
+  },
+>>>>>>> Updated search list icons
 ];
 
 const styledSelect = {
