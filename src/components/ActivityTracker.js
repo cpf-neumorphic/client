@@ -1,7 +1,6 @@
 import React from "react";
 import IdleTimer from "react-idle-timer";
-
-const slugmapping = require("../asset/slug_pageid.json");
+import { getPageIdFromSlug } from "../asset/pages";
 
 const _onAction = (e) => {
   console.log("user did something", e);
@@ -13,13 +12,12 @@ const _onActive = (e) => {
 
 const _onIdle = (e) => {
   // send *sendInfor* to API
-  let sendInfor = null;
-  console.log("user is idle", e);
-  console.log("last active", idleTimer.getLastActiveTime());
+  // console.log("user is idle", e);
   let slug = window.location.pathname;
-  sendInfor = {
+  let page_idx = getPageIdFromSlug(slug);
+  let sendInfor = {
     NRIC: "S9526187D",
-    page_id: slugmapping[slug].page_id,
+    page_id: page_idx,
     time_spent: idleTimer.getElapsedTime(),
   };
   console.log(sendInfor);
