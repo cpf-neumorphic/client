@@ -4,59 +4,59 @@ import { IconContext } from "react-icons";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-	padding: 15px;
-	cursor: pointer;
+  padding: 15px;
+  cursor: pointer;
 `;
 
 const Card = styled.div`
-	padding: 20px;
-	width: 280px;
-	height: 280px;
-	border-radius: 20px;
-	overflow: hidden;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
+  padding: 20px;
+  width: 280px;
+  height: 280px;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Button = styled.div`
-	height: 70px;
-	width: 70px;
-	margin-bottom: 1rem;
-	border-radius: 40px;
-	box-shadow: 0 5px 15px 0 rgba(70, 70, 70, 0.15);
-	background: #40514e;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
+  height: 70px;
+  width: 70px;
+  margin-bottom: 1rem;
+  border-radius: 40px;
+  box-shadow: 0 5px 15px 0 rgba(70, 70, 70, 0.15);
+  background: #40514e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 
-	&:hover {
-		box-shadow: 0 5px 15px 0 rgba(70, 70, 70, 0.5);
-		transition: all 0.5s ease-out;
-	}
+  &:hover {
+    box-shadow: 0 5px 15px 0 rgba(70, 70, 70, 0.5);
+    transition: all 0.5s ease-out;
+  }
 `;
 
 export default function AddButton(props) {
-	const { addButtonHandler } = props;
+  const { addButtonHandler } = props;
 
-	return (
-		<Wrapper>
-			<Card>
-				<Button
-					onClick={() => {
-						addButtonHandler();
-					}}
-				>
-					<IconContext.Provider value={{ color: "#ffffff", size: "36px" }}>
-						<MdAddCircle />
-					</IconContext.Provider>
-				</Button>
-				<p>Add items</p>
-			</Card>
-		</Wrapper>
-	);
+  return (
+    <Wrapper>
+      <Card>
+        <Button
+          onClick={() => {
+            addButtonHandler();
+          }}
+        >
+          <IconContext.Provider value={{ color: "#ffffff", size: "36px" }}>
+            <MdAddCircle />
+          </IconContext.Provider>
+        </Button>
+        <p>Add items</p>
+      </Card>
+    </Wrapper>
+  );
 }
 
 // import React from "react";
