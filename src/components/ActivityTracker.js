@@ -31,18 +31,16 @@ const timeout = 5000;
 
 export default function ActivityTracker(props) {
   return (
-    <div>
-      <IdleTimer
-        ref={(ref) => {
-          idleTimer = ref;
-        }}
-        element={document}
-        onActive={onActive}
-        onIdle={onIdle}
-        onAction={onAction}
-        debounce={250}
-        timeout={timeout}
-      />
-    </div>
+    <IdleTimer
+      ref={(ref) => {
+        idleTimer = ref;
+      }}
+      element={document}
+      onActive={onActive}
+      onIdle={onIdle}
+      onAction={onAction}
+      debounce={250}
+      timeout={timeout}
+    />
   );
 }
