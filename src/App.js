@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch } from "react-router-dom";
 import routes from "./routes";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ActivityTracker from "./components/ActivityTracker";
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
         <div className="flex-grow-1">
           <Navbar />
           <main>
+            <ActivityTracker />
             <Switch>{routes}</Switch>
           </main>
         </div>

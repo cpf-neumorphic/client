@@ -1,0 +1,32 @@
+{
+  "/ordinary_account": {
+    "page_id": 0
+  },
+  "/special_account": {
+    "page_id": 1
+  },
+  "/medisave_account": {
+    "page_id": 2
+  },
+  "/giro_education": {
+    "page_id": 3
+  },
+  "/defer_repayment": {
+    "page_id": 4
+  },
+  "/monthly_instalment": {
+    "page_id": 5
+  },
+  "/saq_status": {
+    "page_id": 6
+  },
+  "/apply_withdraw": {
+    "page_id": 7
+  },
+  "/apply_transfer": {
+    "page_id": 8
+  },
+  "/": {
+    "page_id": 9
+  }
+}
