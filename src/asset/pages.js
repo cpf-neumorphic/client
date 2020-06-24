@@ -24,33 +24,33 @@ const dictionary = [
     categoryPages: [
       {
         pageId: 0,
-        pageSlug: "/ordinary_account",
+        pageSlug: "/demo_videos",
         pageIcon: "FaHome",
-        pageTitle: "Ordinary Account (OA)",
+        pageTitle: "Demo Videos",
         pageDescription:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
       },
       {
         pageId: 1,
-        pageSlug: "/special_account",
+        pageSlug: "/giro_status",
         pageIcon: "FaCalculator",
-        pageTitle: "Special Account (SA)",
+        pageTitle: "GIRO Application Status",
         pageDescription:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
       },
       {
         pageId: 2,
-        pageSlug: "/medisave_account",
+        pageSlug: "/transaction_history",
         pageIcon: "FaHome",
-        pageTitle: "Medisave Account (MA)",
+        pageTitle: "Transaction History Statement",
         pageDescription:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
       },
       {
         pageId: 3,
-        pageSlug: "/giro_replayment",
+        pageSlug: "/contribution_history",
         pageIcon: "FaHome",
-        pageTitle: "Apply/change GIRO for Repayment of Education Loan",
+        pageTitle: "Contribution History Statement",
         pageDescription:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
       },
@@ -62,25 +62,25 @@ const dictionary = [
     categoryPages: [
       {
         pageId: 4,
-        pageSlug: "/defer_repayment",
+        pageSlug: "/contact_information",
         pageIcon: "FaHome",
-        pageTitle: "Defer repayment",
+        pageTitle: "Contact Information",
         pageDescription:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
       },
       {
         pageId: 5,
-        pageSlug: "/monthly_instalment",
+        pageSlug: "/topup_retirement",
         pageIcon: "FaHome",
-        pageTitle: "Change monthly instalment",
+        pageTitle: "Top up my Retirement Account",
         pageDescription:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
       },
       {
         pageId: 6,
-        pageSlug: "/cpfis_saq",
+        pageSlug: "/repay_education",
         pageIcon: "FaHome",
-        pageTitle: "CPFIS Self-Awareness Questionnaire (SAQ) Status",
+        pageTitle: "Repayment of Education Loan",
         pageDescription:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
       },
@@ -92,17 +92,17 @@ const dictionary = [
     categoryPages: [
       {
         pageId: 7,
-        pageSlug: "/withdraw",
+        pageSlug: "/appointment",
         pageIcon: "FaHome",
-        pageTitle: "Apply to Withdraw",
+        pageTitle: "CPF Appointment Service",
         pageDescription:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
       },
       {
         pageId: 8,
-        pageSlug: "/transfer",
+        pageSlug: "/medical_appointment",
         pageIcon: "FaHome",
-        pageTitle: "Apply to Transfer",
+        pageTitle: "CPF e-Medical Appointment Service",
         pageDescription:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
       },
