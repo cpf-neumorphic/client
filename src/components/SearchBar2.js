@@ -6,11 +6,46 @@ import makeAnimated from "react-select/animated";
 import { useHistory } from "react-router-dom";
 import "./SearchBar2.css";
 
+var viewStr = "VIEW";
+var viewStrBold = viewStr.bold();
+
 const options = [
-  { label: "Education", value: "education" },
-  { label: "Housing", value: "housing" },
-  { label: "Investments", value: "investments" },
-  { label: "Statements", value: "statements" },
+  { label: <b>View</b>, value: "#" },
+  {
+    label: "🎞️" + "\xa0\xa0" + "Online Demos",
+    value: "education",
+  },
+  {
+    label: "💸" + "\xa0\xa0" + "GIRO Application Status",
+    value: "education",
+  },
+  {
+    label: "📝" + "\xa0\xa0" + "Transaction History Statement",
+    value: "education",
+  },
+  {
+    label: "📝" + "\xa0\xa0" + "Contribution History Statement",
+    value: "education",
+  },
+  { label: <b>Manage</b>, value: "#" },
+  { label: "☎️" + "\xa0\xa0" + "Contact Information", value: "housing" },
+  {
+    label: "👴" + "\xa0\xa0" + "Top up my Retirement Account",
+    value: "housing",
+  },
+  {
+    label: "🎓" + "\xa0\xa0" + "Repayment of Education Loan",
+    value: "housing",
+  },
+  { label: <b>Appointments</b>, value: "#" },
+  {
+    label: "📅" + "\xa0\xa0" + "CPF Appointment Service",
+    value: "investments",
+  },
+  {
+    label: "💉" + "\xa0\xa0" + "CPF e-Medical Appointment Service",
+    value: "statements",
+  },
 ];
 
 const styledSelect = {
