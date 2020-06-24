@@ -10,12 +10,15 @@ var viewStr = "VIEW";
 var viewStrBold = viewStr.bold();
 
 const options = [
+<<<<<<< HEAD
 <<<<<<< master
   { label: "Education", value: "education" },
   { label: "Housing", value: "housing" },
   { label: "Investments", value: "investments" },
   { label: "Statements", value: "statements" },
 =======
+=======
+>>>>>>> 991387eb4793cc2b485b986beccda466bd5b15f6
   { label: <b>View</b>, value: "#" },
   {
     label: "🎞️" + "\xa0\xa0" + "Online Demos",
@@ -44,11 +47,14 @@ const options = [
     value: "housing",
   },
   { label: <b>Appointments</b>, value: "#" },
+<<<<<<< HEAD
 <<<<<<< master
   { label: "💰" + "\xa0\xa0" + "Investments", value: "investments" },
   { label: "📝" + "\xa0\xa0" + "Statements", value: "statements" },
 >>>>>>> Added section headers
 =======
+=======
+>>>>>>> 991387eb4793cc2b485b986beccda466bd5b15f6
   {
     label: "📅" + "\xa0\xa0" + "CPF Appointment Service",
     value: "investments",
@@ -57,7 +63,10 @@ const options = [
     label: "💉" + "\xa0\xa0" + "CPF e-Medical Appointment Service",
     value: "statements",
   },
+<<<<<<< HEAD
 >>>>>>> Updated search list icons
+=======
+>>>>>>> 991387eb4793cc2b485b986beccda466bd5b15f6
 ];
 
 const styledSelect = {
