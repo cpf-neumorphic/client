@@ -4,7 +4,7 @@ import { Modal, Button } from "react-bootstrap";
 import Scrollable from "./Scrollable";
 import FavouriteCard from "./FavouriteCard";
 import FavouriteAddButton from "./FavouriteAddButton";
-import { getPageInforFromPageID, getAllPageInfor } from "../asset/pages";
+import { getPageInforFromPageId, getAllPageInfor } from "../asset/pages";
 
 const defaults = [0, 1];
 const all_favourites = getAllPageInfor();
@@ -15,7 +15,7 @@ export default function Favourites(props) {
   const [isVisibleModal, setVisibleModal] = useState(false);
 
   const currFavourites = favourites.map((id) => {
-    const data = getPageInforFromPageID(id);
+    const data = getPageInforFromPageId(id);
     return <FavouriteCard key={id} data={data} />;
   });
 

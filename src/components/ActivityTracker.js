@@ -31,12 +31,12 @@ const _onIdle = (e) => {
   let page_idx = getPageIdFromSlug(slug);
   let sendInfor = {
     nric: "S9526187D",
-    page_id: page_idx,
-    duration: idleTimer.getElapsedTime(),
+    page_id: String(page_idx),
+    duration: String(idleTimer.getElapsedTime()),
   };
   // updateUsage(sendInfor);
 
-  console.log(sendInfor);
+  // console.log(sendInfor);
 };
 
 let idleTimer = null;
