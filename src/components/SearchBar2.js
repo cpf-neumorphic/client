@@ -6,11 +6,49 @@ import makeAnimated from "react-select/animated";
 import { useHistory } from "react-router-dom";
 import "./SearchBar2.css";
 
+var viewStr = "VIEW";
+var viewStrBold = viewStr.bold();
+
 const options = [
-  { label: "Education", value: "education" },
-  { label: "Housing", value: "housing" },
-  { label: "Investments", value: "investments" },
-  { label: "Statements", value: "statements" },
+  { label: <b>View</b>, value: "#" },
+  {
+    label: "🎞️" + "\xa0\xa0" + "Demo Videos",
+    value: "demo_videos",
+  },
+  {
+    label: "💸" + "\xa0\xa0" + "GIRO Application Status",
+    value: "giro_status",
+  },
+  {
+    label: "📝" + "\xa0\xa0" + "Transaction History Statement",
+    value: "transaction_history",
+  },
+  {
+    label: "📝" + "\xa0\xa0" + "Contribution History Statement",
+    value: "contribution_history",
+  },
+  { label: <b>Manage</b>, value: "#" },
+  {
+    label: "☎️" + "\xa0\xa0" + "Contact Information",
+    value: "contact_information",
+  },
+  {
+    label: "👴" + "\xa0\xa0" + "Top up my Retirement Account",
+    value: "topup_retirement",
+  },
+  {
+    label: "🎓" + "\xa0\xa0" + "Repayment of Education Loan",
+    value: "repay_education",
+  },
+  { label: <b>Appointments</b>, value: "#" },
+  {
+    label: "📅" + "\xa0\xa0" + "CPF Appointment Service",
+    value: "appointment",
+  },
+  {
+    label: "💉" + "\xa0\xa0" + "CPF e-Medical Appointment Service",
+    value: "medical_appointment",
+  },
 ];
 
 const styledSelect = {
