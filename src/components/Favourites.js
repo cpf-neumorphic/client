@@ -4,9 +4,10 @@ import { Modal, Button } from "react-bootstrap";
 import Scrollable from "./Scrollable";
 import FavouriteCard from "./FavouriteCard";
 import FavouriteAddButton from "./FavouriteAddButton";
+import { getPageInforFromPageID, getAllPageInfor } from "../asset/pages";
 
-const defaults = ["0", "1"];
-const all_favourites = require("../asset/favourites.json");
+const defaults = [0, 1];
+const all_favourites = getAllPageInfor();
 
 export default function Favourites(props) {
   const [favourites, setFavourites] = useState(props.userFavouries || defaults);
@@ -14,11 +15,12 @@ export default function Favourites(props) {
   const [isVisibleModal, setVisibleModal] = useState(false);
 
   const currFavourites = favourites.map((id) => {
-    const data = all_favourites[id];
+    const data = getPageInforFromPageID(id);
     return <FavouriteCard key={id} data={data} />;
   });
 
   const allFavourites = Object.keys(all_favourites).map((id) => {
+    id = parseInt(id);
     const data = all_favourites[id];
     const selected = pendingFavourites.includes(id);
 

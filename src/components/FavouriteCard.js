@@ -2,6 +2,7 @@ import React from "react";
 import * as FAIcon from "react-icons/fa";
 import { IconContext } from "react-icons";
 import styled from "styled-components";
+import { getAllPageInfor } from "../asset/pages";
 
 const Wrapper = styled.div`
   padding: 15px;
@@ -41,10 +42,11 @@ const Card = styled.div`
   }}
 `;
 
-const defaults = require("../asset/favourites.json")["0"];
+const defaults = getAllPageInfor()[0];
 
 export default function FavouritesCard(props) {
-  const { icon, title, description } = props.data || defaults;
+  const { pageIcon, pageTitle, pageDescription } = props.data || defaults;
+  // console.log(pageTitle);
   const selected = props.selected || false;
   const handleClick = props.onClick;
 
@@ -52,15 +54,17 @@ export default function FavouritesCard(props) {
     <Wrapper onClick={handleClick}>
       <Card selected={selected}>
         <IconContext.Provider value={{ color: "11999e", size: "64px" }}>
-          {React.createElement(FAIcon[icon])}
+          {React.createElement(FAIcon[pageIcon])}
         </IconContext.Provider>
         <h2 className="my-2">
-          {title.length > 25 ? title.substring(0, 25) + "..." : title}
+          {pageTitle.length > 25
+            ? pageTitle.substring(0, 25) + "..."
+            : pageTitle}
         </h2>
         <p>
-          {description.length > 85
-            ? description.substring(0, 85) + "..."
-            : description}
+          {pageDescription.length > 85
+            ? pageDescription.substring(0, 85) + "..."
+            : pageDescription}
         </p>
       </Card>
     </Wrapper>

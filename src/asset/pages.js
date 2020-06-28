@@ -137,5 +137,40 @@ const getCategoryLabelFromId = (categoryId) => {
   return -1; // Not found
 };
 
+/**
+ * Find the corresponding pageInfor from pageID. Will return -1 if not found.
+ * @param {string} pageID
+ * @returns {object} page data of given pageID
+ */
+const getPageInforFromPageID = (pageID) => {
+  for (let { categoryPages } of dictionary) {
+    for (let page of categoryPages) {
+      if (page.pageId === pageID) return page;
+    }
+  }
+
+  return -1; // Not found
+};
+
+/**
+ * Get all page information available. Will return -1 if not found.
+ * @returns {object} page data of given pageID
+ */
+const getAllPageInfor = () => {
+  let pageInfor = {};
+  for (let { categoryPages } of dictionary) {
+    for (let page of categoryPages) {
+      pageInfor[page.pageId] = page;
+    }
+  }
+  if (pageInfor) return pageInfor;
+  else return -1; // Not found
+};
+
 export default dictionary;
-export { getPageIdFromSlug, getCategoryLabelFromId };
+export {
+  getPageIdFromSlug,
+  getCategoryLabelFromId,
+  getPageInforFromPageID,
+  getAllPageInfor,
+};
