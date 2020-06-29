@@ -1,52 +1,52 @@
 // import React from "react";
-import React, { Component, useState } from "react";
-import styled, { ThemeConsumer } from "styled-components";
+import React from "react";
+import styled from "styled-components";
 import Select from "react-select";
-import makeAnimated from "react-select/animated";
+// import makeAnimated from "react-select/animated";
 import { useHistory } from "react-router-dom";
 import "./SearchBar2.css";
 
-var viewStr = "VIEW";
-var viewStrBold = viewStr.bold();
+// var viewStr = "VIEW";
+// var viewStrBold = viewStr.bold();
 
 const options = [
   { label: <b>View</b>, value: "#" },
   {
-    label: "🎞️" + "\xa0\xa0" + "Demo Videos",
+    label: "🎞️\xa0\xa0Demo Videos",
     value: "demo_videos",
   },
   {
-    label: "💸" + "\xa0\xa0" + "GIRO Application Status",
+    label: "💸\xa0\xa0GIRO Application Status",
     value: "giro_status",
   },
   {
-    label: "📝" + "\xa0\xa0" + "Transaction History Statement",
+    label: "📝\xa0\xa0Transaction History Statement",
     value: "transaction_history",
   },
   {
-    label: "📝" + "\xa0\xa0" + "Contribution History Statement",
+    label: "📝\xa0\xa0Contribution History Statement",
     value: "contribution_history",
   },
   { label: <b>Manage</b>, value: "#" },
   {
-    label: "☎️" + "\xa0\xa0" + "Contact Information",
+    label: "☎️\xa0\xa0Contact Information",
     value: "contact_information",
   },
   {
-    label: "👴" + "\xa0\xa0" + "Top up my Retirement Account",
+    label: "👴\xa0\xa0Top up my Retirement Account",
     value: "topup_retirement",
   },
   {
-    label: "🎓" + "\xa0\xa0" + "Repayment of Education Loan",
+    label: "🎓\xa0\xa0Repayment of Education Loan",
     value: "repay_education",
   },
   { label: <b>Appointments</b>, value: "#" },
   {
-    label: "📅" + "\xa0\xa0" + "CPF Appointment Service",
+    label: "📅\xa0\xa0CPF Appointment Service",
     value: "appointment",
   },
   {
-    label: "💉" + "\xa0\xa0" + "CPF e-Medical Appointment Service",
+    label: "💉\xa0\xa0CPF e-Medical Appointment Service",
     value: "medical_appointment",
   },
 ];
