@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { useState, useEffect, createContext } from "react";
 /**
  * User definition
  * @typedef {Object} User
@@ -22,16 +22,14 @@ const demoUsers = [
 ];
 
 /**
- * Get all users available for demo.
- * @returns {User[]} User
- */
-const getAllUsers = () => demoUsers;
+ * A list of demo users.
+ * @type {User[]} */
+const allUsers = demoUsers;
 
 /**
- * Get current user.
- * @returns {User} User
- */
-let getCurrentUser = () => {};
+ * The current user.
+ * @type {User} */
+let currentUser = demoUsers[0];
 
 /**
  * Set current user.
@@ -40,23 +38,24 @@ let getCurrentUser = () => {};
 let setCurrentUser = () => {};
 
 export const UserContext = createContext({
-  getAllUsers,
-  getCurrentUser,
+  currentUser,
+  allUsers,
   setCurrentUser,
 });
 
 export const UserProvider = (props) => {
   const [currentNric, setCurrentNric] = useState(demoUsers[0].nric);
 
-  getCurrentUser = () => demoUsers.find((user) => user.nric === currentNric);
+  useEffect(() => {
+    currentUser = demoUsers.find((user) => user.nric === currentNric);
+  }, [currentNric]);
+
   setCurrentUser = (nric) => {
     if (demoUsers.some((user) => user.nric === nric)) setCurrentNric(nric);
   };
 
   return (
-    <UserContext.Provider
-      value={{ getAllUsers, getCurrentUser, setCurrentUser }}
-    >
+    <UserContext.Provider value={{ currentUser, allUsers, setCurrentUser }}>
       {props.children}
     </UserContext.Provider>
   );
