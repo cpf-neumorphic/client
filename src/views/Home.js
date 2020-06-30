@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 
 import Scrollable from "../components/Scrollable";
@@ -7,7 +7,7 @@ import LandingCard from "../components/LandingCard";
 import SearchBar from "../components/SearchBar2";
 import Favourites from "../components/Favourites";
 import RecommendCard from "../components/RecommendCard";
-// import SearchBar from "../components/SearchBar";
+import { UserContext } from "../contexts/UserContext";
 
 import helloImg from "../img/landing-hello.png";
 
@@ -23,7 +23,7 @@ const LandingGreen = styled.div`
 `;
 
 export default (props) => {
-  const name = props.name || "Adam";
+  const { currentUser } = useContext(UserContext);
 
   return (
     <>
@@ -36,7 +36,7 @@ export default (props) => {
               src={helloImg}
               draggable="false"
             />
-            <h1>Hello, {name}</h1>
+            <h1>Hello, {currentUser.name}</h1>
             <p>What would you like to do today?</p>
             <SearchBar></SearchBar>
           </div>
