@@ -35,7 +35,7 @@ let currentUser = demoUsers[0];
  * Set current user.
  * @param {string} nric
  */
-let setCurrentUser = () => {};
+let setCurrentUser = (nric) => {};
 
 export const UserContext = createContext({
   currentUser,
@@ -51,7 +51,11 @@ export const UserProvider = (props) => {
   }, [currentNric]);
 
   setCurrentUser = (nric) => {
-    if (demoUsers.some((user) => user.nric === nric)) setCurrentNric(nric);
+    const selectedUser = demoUsers.find((user) => user.nric === nric);
+    if (selectedUser) {
+      setCurrentNric(nric);
+      currentUser = selectedUser;
+    }
   };
 
   return (
