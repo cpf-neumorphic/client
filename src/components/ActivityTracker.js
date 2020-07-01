@@ -34,7 +34,7 @@ const _onIdle = (e) => {
     page_id: String(page_idx),
     duration: String(idleTimer.getElapsedTime()),
   };
-  // updateUsage(sendInfor);
+  updateUsage(sendInfor);
 
   // console.log(sendInfor);
 };
