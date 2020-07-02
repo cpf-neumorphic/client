@@ -1,51 +1,94 @@
-import React from "react";
+import React, { useContext, useState, useRef } from "react";
 import IdleTimer from "react-idle-timer";
 import { getPageIdFromSlug } from "../asset/pages";
 import axios from "axios";
+import { UserContext } from "../contexts/UserContext";
 
-const _onAction = (e) => {
-  console.log("user did something", e);
-};
+const idleTimer = null;
 
-const _onActive = (e) => {
-  console.log("user is active", e);
-};
+export const ActivityTracker = (props) => {
+  const { currentUser } = useContext(UserContext);
+  const [curActiveState, setCurActiveState] = useState([
+    true,
+    window.location.pathname,
+  ]);
 
-const updateUsage = (data) => {
-  // POST user usage onto the cloud.
-  axios
-    .post("http://13.67.40.27:3001/api/updateUsage", JSON.stringify(data))
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
+  const timeout = 5000;
 
-const _onIdle = (e) => {
-  /* 
-  Trigger on idle after 5 second.
-   */
-  let slug = window.location.pathname;
-  let page_idx = getPageIdFromSlug(slug);
-  let sendInfor = {
-    nric: "S9526187D",
-    page_id: String(page_idx),
-    duration: String(idleTimer.getElapsedTime()),
+  const _onAction = (currentUser, curActiveState, setCurActiveState) => {
+    console.log(curActiveState);
+    console.log(curActiveState[1] !== window.location.pathname);
+    console.log(curActiveState[1] === window.location.pathname);
+    if (curActiveState[0]) {
+      if (curActiveState[1] !== window.location.pathname) {
+        console.log("Different slug", idleTimer.getElapsedTime());
+        setCurActiveState([true, window.location.pathname]);
+        idleTimer.reset();
+      }
+    } else {
+      console.log("reset");
+      idleTimer.reset();
+      setCurActiveState([true, window.location.pathname]);
+    }
   };
-  updateUsage(sendInfor);
 
-  // console.log(sendInfor);
-};
+  const _onActive = (currentUser, curActiveState, setCurActiveState) => {
+    console.log(curActiveState);
+    console.log(curActiveState[1] !== window.location.pathname);
+    console.log(curActiveState[1] === window.location.pathname);
+    if (curActiveState[0]) {
+      if (curActiveState[1] !== window.location.pathname) {
+        console.log("Different slug", idleTimer.getElapsedTime());
+        setCurActiveState([true, window.location.pathname]);
+        idleTimer.reset();
+      }
+    } else {
+      console.log("reset");
+      idleTimer.reset();
+      setCurActiveState([true, window.location.pathname]);
+    }
+  };
 
-let idleTimer = null;
-let onAction = _onAction.bind(this);
-let onActive = _onActive.bind(this);
-let onIdle = _onIdle.bind(this);
-const timeout = 5000;
+  /**
+   * POST user usage to API
+   * @param {object} data
+   */
+  const updateUsage = (currentUser) => {
+    let slug = window.location.pathname;
+    let page_idx = getPageIdFromSlug(slug);
+    let sendInfor = {
+      nric: currentUser.nric,
+      page_id: String(page_idx),
+      duration: String(idleTimer.getElapsedTime()),
+    };
+    axios
+      .post(
+        "http://13.67.40.27:3001/api/updateUsage",
+        JSON.stringify(sendInfor)
+      )
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
-export default function ActivityTracker(props) {
+  /**
+   * Trigger on idle more then 5 second.
+   * @param {object} currentUser
+   * @param {function} setCurActiveState
+   */
+  const _onIdle = (currentUser, setCurActiveState) => {
+    // updateUsage(currentUser);
+    console.log("idle", idleTimer.getElapsedTime());
+    setCurActiveState([false, window.location.pathname]);
+    idleTimer.reset();
+  };
+
+  let onAction = _onAction(currentUser, curActiveState, setCurActiveState);
+  let onActive = _onActive(currentUser, curActiveState, setCurActiveState);
+  let onIdle = _onIdle(currentUser, setCurActiveState);
   return (
     <IdleTimer
       ref={(ref) => {
@@ -57,6 +100,7 @@ export default function ActivityTracker(props) {
       onAction={onAction}
       debounce={250}
       timeout={timeout}
+      stopOnIdle={false}
     />
   );
-}
+};
