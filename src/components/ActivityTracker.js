@@ -5,22 +5,16 @@ import { getPageIdFromSlug } from "../asset/pages";
 import axios from "axios";
 import { UserContext } from "../contexts/UserContext";
 
-let idleTimer = null;
-
 export const ActivityTracker = (props) => {
   const location = useLocation();
   const { currentUser } = useContext(UserContext);
+  const idleTimer = useRef(null);
+
   const [prevPathname, setPrevPathname] = useState(location.pathname);
 
   const timeout = 5000;
-
-  // Called whenever pathname changes
-  useEffect(() => {
-    // updateUsage(currentUser.nric, prevPathname);
-    console.log("Page changed: ", idleTimer.getElapsedTime());
-    idleTimer.reset();
-    setPrevPathname(location.pathname);
-  }, [location.pathname]);
+  const firstActive = useRef(Date.now());
+  const getActiveTime = () => Date.now() - firstActive.current - timeout;
 
   // const _onAction = (currentUser, curActiveState, setCurActiveState) => {
   //   console.log(curActiveState);
@@ -56,42 +50,58 @@ export const ActivityTracker = (props) => {
   //   }
   // };
 
-  /**
-   * Trigger on idle more then 5 second.
-   */
-  const onIdle = () => {
-    // updateUsage(currentUser.nric, location.pathname);
-    console.log("onIdle: Timer pause & reset -", idleTimer.getElapsedTime());
-  };
-
-  /**
-   * Trigger on active.
-   */
-  const onActive = () => {
-    console.log("onActive: Timer reset.");
-    idleTimer.reset();
-  };
-
-  // const onAction = () => {
-  //   console.log("onAction: Timer reset.");
-  //   idleTimer.resume();
-  // };
-
   // let onAction = _onAction(currentUser, curActiveState, setCurActiveState);
   // let onActive = _onActive(currentUser, curActiveState, setCurActiveState);
+
+  /**
+   * Called whenever pathname changes
+   */
+  useEffect(() => {
+    // Only update when prevPathname is different from current pathname
+    if (prevPathname !== location.pathname) {
+      const activeTime = getActiveTime() + timeout; // Ignore timeout
+
+      // TODO: updateUsage(currentUser.nric, prevPathname, activeTime);
+      console.log(
+        `onPageChange: User was active for ${activeTime}ms on ${prevPathname}.`,
+        `\nRedirected to ${location.pathname}.`
+      );
+
+      // Reset firstActive
+      firstActive.current = Date.now();
+      setPrevPathname(location.pathname);
+    }
+  }, [prevPathname, location.pathname]);
+
+  /**
+   * onIdle callback after more then 5 seconds of idle time.
+   */
+  const onIdle = () => {
+    // TODO: updateUsage(currentUser.nric, location.pathname, getActiveTime());
+    console.log(
+      `onIdle: User was active for ${getActiveTime()}ms on ${location.pathname}`
+    );
+  };
+
+  /**
+   * onActive callback when user is active on page.
+   */
+  const onActive = () => {
+    // Reset firstActive
+    firstActive.current = Date.now();
+    console.log(`onActive: Reset firstActive`);
+  };
 
   return (
     <IdleTimer
       ref={(ref) => {
-        idleTimer = ref;
+        idleTimer.current = ref;
       }}
       element={document}
       onActive={onActive}
       onIdle={onIdle}
-      // onAction={onAction}
       debounce={250}
       timeout={timeout}
-      // stopOnIdle={true}
     />
   );
 };
@@ -100,13 +110,14 @@ export const ActivityTracker = (props) => {
  * POST user usage to API
  * @param {string} nric
  * @param {string} pathname
+ * @param {number} elapsedTime
  */
-const updateUsage = (nric, pathname) => {
+const updateUsage = (nric, pathname, elapsedTime) => {
   let page_idx = getPageIdFromSlug(pathname);
   let sendInfor = {
     nric: nric,
     page_id: String(page_idx),
-    duration: String(idleTimer.getElapsedTime()),
+    duration: String(elapsedTime),
   };
   axios
     .post("http://13.67.40.27:3001/api/updateUsage", JSON.stringify(sendInfor))
@@ -114,6 +125,6 @@ const updateUsage = (nric, pathname) => {
       console.log(response);
     })
     .catch((error) => {
-      console.log(error);
+      console.error(error);
     });
 };
