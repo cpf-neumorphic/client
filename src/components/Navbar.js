@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 import Container from "react-bootstrap/Container";
+import { UserContext } from "../contexts/UserContext";
+
 import CPFLogo from "../img/cpf-logo.png";
 
 const Nav = styled.nav`
@@ -16,7 +18,7 @@ const Menu = styled.div`
 `;
 
 export default (props) => {
-  const name = props.name || "Adam";
+  const { currentUser } = useContext(UserContext);
 
   return (
     <Nav>
@@ -25,9 +27,9 @@ export default (props) => {
           <img src={CPFLogo} alt="CPFB Logo" style={{ height: "60px" }} />
         </Link>
         <Menu>
-          <Link to="#">
+          <Link to="/login">
             <FontAwesomeIcon icon={faUser} className="mr-3" />
-            {name}
+            {currentUser.name}
           </Link>
         </Menu>
       </Container>
