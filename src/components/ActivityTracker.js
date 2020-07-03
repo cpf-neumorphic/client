@@ -13,8 +13,8 @@ export const ActivityTracker = (props) => {
   const [prevPathname, setPrevPathname] = useState(location.pathname);
 
   const timeout = 5000;
-  const firstActive = useRef(Date.now());
-  const getActiveTime = () => Date.now() - firstActive.current - timeout;
+  const lastActive = useRef(Date.now());
+  const getActiveTime = () => Date.now() - lastActive.current - timeout;
 
   // const _onAction = (currentUser, curActiveState, setCurActiveState) => {
   //   console.log(curActiveState);
@@ -67,8 +67,8 @@ export const ActivityTracker = (props) => {
         `\nRedirected to ${location.pathname}.`
       );
 
-      // Reset firstActive
-      firstActive.current = Date.now();
+      // Reset lastActive
+      lastActive.current = Date.now();
       setPrevPathname(location.pathname);
     }
   }, [prevPathname, location.pathname]);
@@ -87,9 +87,9 @@ export const ActivityTracker = (props) => {
    * onActive callback when user is active on page.
    */
   const onActive = () => {
-    // Reset firstActive
-    firstActive.current = Date.now();
-    console.log(`onActive: Reset firstActive`);
+    // Reset lastActive
+    lastActive.current = Date.now();
+    console.log(`onActive: Reset lastActive`);
   };
 
   return (
