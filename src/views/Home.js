@@ -8,6 +8,7 @@ import SearchBar from "../components/SearchBar2";
 import Favourites from "../components/Favourites";
 import RecommendCard from "../components/RecommendCard";
 import { UserContext } from "../contexts/UserContext";
+import { getPageInforFromPageId } from "../asset/pages";
 
 import helloImg from "../img/landing-hello.png";
 
@@ -52,7 +53,11 @@ export default (props) => {
       <Section>
         <SectionHeader header="Recommended" text="These may be useful" />
         <Scrollable>
-          <RecommendCard />
+          {currentUser.recommendations.map((rec, i) => {
+            const { pageIcon, pageTitle } = getPageInforFromPageId(rec);
+
+            return <RecommendCard key={i} icon={pageIcon} title={pageTitle} />;
+          })}
         </Scrollable>
       </Section>
     </>
