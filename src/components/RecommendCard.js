@@ -66,6 +66,10 @@ const Card = styled.div`
     transition: box-shadow 0.5s ease-out;
   }
 
+  & h2 {
+    font-size: 1.5rem;
+  }
+
   ${(props) => {
     if (props.selected) {
       return `
