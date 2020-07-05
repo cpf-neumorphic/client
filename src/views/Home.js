@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 
 import Scrollable from "../components/Scrollable";
@@ -24,6 +25,7 @@ const LandingGreen = styled.div`
 `;
 
 export default (props) => {
+  const history = useHistory();
   const { currentUser } = useContext(UserContext);
 
   return (
@@ -54,9 +56,16 @@ export default (props) => {
         <SectionHeader header="Recommended" text="These may be useful" />
         <Scrollable>
           {currentUser.recommendations.map((rec, i) => {
-            const { pageIcon, pageTitle } = getPageInforFromPageId(rec);
-
-            return <RecommendCard key={i} icon={pageIcon} title={pageTitle} />;
+            const data = getPageInforFromPageId(rec);
+            return (
+              <RecommendCard
+                key={i}
+                data={data}
+                onClick={() => {
+                  history.push(data.pageSlug);
+                }}
+              />
+            );
           })}
         </Scrollable>
       </Section>

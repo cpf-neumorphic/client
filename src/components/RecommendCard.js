@@ -7,7 +7,7 @@ import { IconContext } from "react-icons";
 import styled from "styled-components";
 
 const RecommendCard = (props) => {
-  const { icon, title } = props;
+  const { pageIcon, pageTitle } = props.data;
   const selected = props.selected || false;
   const handleClick = props.onClick;
 
@@ -24,11 +24,13 @@ const RecommendCard = (props) => {
       <Card selected={selected}>
         <IconCircle>
           <IconContext.Provider value={{ color: "white", size: "36px" }}>
-            {React.createElement(FAIcon[icon])}
+            {React.createElement(FAIcon[pageIcon])}
           </IconContext.Provider>
         </IconCircle>
         <h2 className="my-2">
-          {title.length > 25 ? title.substring(0, 25) + "..." : title}
+          {pageTitle.length > 25
+            ? pageTitle.substring(0, 25) + "..."
+            : pageTitle}
         </h2>
       </Card>
     </Wrapper>
