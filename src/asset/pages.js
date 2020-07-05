@@ -140,7 +140,7 @@ const getCategoryLabelFromId = (categoryId) => {
 /**
  * Find the corresponding pageInfor from pageID. Will return -1 if not found.
  * @param {string} pageId
- * @returns {object} page data of given pageID
+ * @returns {Page} page data of given pageID
  */
 const getPageInforFromPageId = (pageId) => {
   for (let { categoryPages } of dictionary) {
@@ -168,6 +168,7 @@ const getAllPageInfor = () => {
 };
 
 export default dictionary;
+
 export {
   getPageIdFromSlug,
   getCategoryLabelFromId,
