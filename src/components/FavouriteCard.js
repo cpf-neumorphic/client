@@ -4,6 +4,34 @@ import { IconContext } from "react-icons";
 import styled from "styled-components";
 import { getAllPageInfor } from "../asset/pages";
 
+const defaults = getAllPageInfor()[0];
+
+export default function FavouritesCard(props) {
+  const { pageIcon, pageTitle, pageDescription } = props.data || defaults;
+  const selected = props.selected || false;
+  const handleClick = props.onClick;
+
+  return (
+    <Wrapper onClick={handleClick}>
+      <Card selected={selected}>
+        <IconContext.Provider value={{ color: "11999e", size: "64px" }}>
+          {React.createElement(FAIcon[pageIcon])}
+        </IconContext.Provider>
+        <h2 className="my-2">
+          {pageTitle.length > 25
+            ? pageTitle.substring(0, 25) + "..."
+            : pageTitle}
+        </h2>
+        <p>
+          {pageDescription.length > 85
+            ? pageDescription.substring(0, 85) + "..."
+            : pageDescription}
+        </p>
+      </Card>
+    </Wrapper>
+  );
+}
+
 const Wrapper = styled.div`
   padding: 15px;
 `;
@@ -41,68 +69,3 @@ const Card = styled.div`
     }
   }}
 `;
-
-const defaults = getAllPageInfor()[0];
-
-export default function FavouritesCard(props) {
-  const { pageIcon, pageTitle, pageDescription } = props.data || defaults;
-  // console.log(pageTitle);
-  const selected = props.selected || false;
-  const handleClick = props.onClick;
-
-  return (
-    <Wrapper onClick={handleClick}>
-      <Card selected={selected}>
-        <IconContext.Provider value={{ color: "11999e", size: "64px" }}>
-          {React.createElement(FAIcon[pageIcon])}
-        </IconContext.Provider>
-        <h2 className="my-2">
-          {pageTitle.length > 25
-            ? pageTitle.substring(0, 25) + "..."
-            : pageTitle}
-        </h2>
-        <p>
-          {pageDescription.length > 85
-            ? pageDescription.substring(0, 85) + "..."
-            : pageDescription}
-        </p>
-      </Card>
-    </Wrapper>
-  );
-}
-
-// import React from "react";
-// import { Row, Container } from "react-bootstrap";
-// import * as MaterialDesign from "react-icons/fa";
-// import { IconContext } from "react-icons";
-// import styled from "styled-components";
-// import "./test.css";
-
-// const IconContext_ = styled(IconContext)`
-//   // border-style: solid;
-//   align: center;
-// `;
-
-// function Favourites_card(props) {
-//   console.log(props);
-//   const { icon, header, description } = props.data;
-//   const mdIcon = MaterialDesign[icon];
-//   const size_ = props.size;
-//   console.log(size_);
-//   console.log({ mdIcon });
-//   return (
-//     <Container>
-//       <IconContext_.Provider value={{ color: "11999e", size: size_ }}>
-//         <Row>{React.createElement(mdIcon)}</Row>
-//       </IconContext_.Provider>
-//       <Row>
-//         <h4 className="title">{header}</h4>
-//       </Row>
-//       <Row className="hide">
-//         <p className="body p">{description}</p>
-//       </Row>
-//     </Container>
-//   );
-// }
-
-// export default Favourites_card;
