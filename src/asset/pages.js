@@ -154,17 +154,18 @@ const getPageInforFromPageId = (pageId) => {
 
 /**
  * Get all page information available. Will return -1 if not found.
- * @returns {object} page data of given pageID
+ * @returns {Page[]} page data of given pageID
  */
 const getAllPageInfor = () => {
-  let pageInfor = {};
+  const allPages = [];
+
   for (let { categoryPages } of dictionary) {
     for (let page of categoryPages) {
-      pageInfor[page.pageId] = page;
+      allPages.push(page);
     }
   }
-  if (pageInfor) return pageInfor;
-  else return -1; // Not found
+
+  return allPages;
 };
 
 export default dictionary;
