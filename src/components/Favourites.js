@@ -7,13 +7,13 @@ import FavouriteCard from "./FavouriteCard";
 import FavouriteAddButton from "./FavouriteAddButton";
 import { getPageInforFromPageId, getAllPageInfor } from "../asset/pages";
 import { UserContext } from "../contexts/UserContext";
-import user_favorites_dictionary from "../asset/user_favourites";
 
 const all_favourites = getAllPageInfor();
 
 export default function Favourites(props) {
   const { currentUser } = useContext(UserContext);
-  const defaults = user_favorites_dictionary[currentUser.nric].favourties;
+  const defaults = currentUser.favouries;
+  console.log(defaults);
 
   const history = useHistory();
   const [favourites, setFavourites] = useState(props.userFavouries || defaults);
