@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 import { Modal, Button } from "react-bootstrap";
 
 import Scrollable from "./Scrollable";
@@ -14,13 +15,22 @@ export default function Favourites(props) {
   const { currentUser } = useContext(UserContext);
   const defaults = user_favorites_dictionary[currentUser.nric].favourties;
 
+  const history = useHistory();
   const [favourites, setFavourites] = useState(props.userFavouries || defaults);
   const [pendingFavourites, setPendingFavourites] = useState([]);
   const [isVisibleModal, setVisibleModal] = useState(false);
 
   const currFavourites = favourites.map((id) => {
     const data = getPageInforFromPageId(id);
-    return <FavouriteCard key={id} data={data} />;
+    return (
+      <FavouriteCard
+        key={id}
+        data={data}
+        onClick={() => {
+          history.push(data.pageSlug);
+        }}
+      />
+    );
   });
 
   const allFavourites = Object.keys(all_favourites).map((id) => {
