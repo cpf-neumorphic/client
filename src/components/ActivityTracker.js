@@ -16,43 +16,6 @@ export const ActivityTracker = (props) => {
   const lastActive = useRef(Date.now());
   const getActiveTime = () => Date.now() - lastActive.current - timeout;
 
-  // const _onAction = (currentUser, curActiveState, setCurActiveState) => {
-  //   console.log(curActiveState);
-  //   console.log(curActiveState[1] !== window.location.pathname);
-  //   console.log(curActiveState[1] === window.location.pathname);
-  //   if (curActiveState[0]) {
-  //     if (curActiveState[1] !== window.location.pathname) {
-  //       console.log("Different slug", idleTimer.getElapsedTime());
-  //       setCurActiveState([true, window.location.pathname]);
-  //       idleTimer.reset();
-  //     }
-  //   } else {
-  //     console.log("reset");
-  //     idleTimer.reset();
-  //     setCurActiveState([true, window.location.pathname]);
-  //   }
-  // };
-
-  // const _onActive = (currentUser, curActiveState, setCurActiveState) => {
-  //   console.log(curActiveState);
-  //   console.log(curActiveState[1] !== window.location.pathname);
-  //   console.log(curActiveState[1] === window.location.pathname);
-  //   if (curActiveState[0]) {
-  //     if (curActiveState[1] !== window.location.pathname) {
-  //       console.log("Different slug", idleTimer.getElapsedTime());
-  //       setCurActiveState([true, window.location.pathname]);
-  //       idleTimer.reset();
-  //     }
-  //   } else {
-  //     console.log("reset");
-  //     idleTimer.reset();
-  //     setCurActiveState([true, window.location.pathname]);
-  //   }
-  // };
-
-  // let onAction = _onAction(currentUser, curActiveState, setCurActiveState);
-  // let onActive = _onActive(currentUser, curActiveState, setCurActiveState);
-
   /**
    * Called whenever pathname changes
    */
