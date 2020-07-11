@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { Modal, Button } from "react-bootstrap";
 
@@ -6,11 +6,15 @@ import Scrollable from "./Scrollable";
 import FavouriteCard from "./FavouriteCard";
 import FavouriteAddButton from "./FavouriteAddButton";
 import { getPageInforFromPageId, getAllPageInfor } from "../asset/pages";
+import { UserContext } from "../contexts/UserContext";
 
-const defaults = [0, 1];
 const all_favourites = getAllPageInfor();
 
 export default function Favourites(props) {
+  const { currentUser } = useContext(UserContext);
+  const defaults = currentUser.favouries;
+  console.log(defaults);
+
   const history = useHistory();
   const [favourites, setFavourites] = useState(props.userFavouries || defaults);
   const [pendingFavourites, setPendingFavourites] = useState([]);

@@ -13,11 +13,13 @@ const demoUsers = [
     nric: "S9250265W",
     name: "Billy Martin",
     recommendations: [3, 0, 2],
+    favouries: [0, 1, 2],
   },
   {
     nric: "S6548272X",
     name: "Evelyn Kane",
     recommendations: [6, 3, 5],
+    favouries: [3, 4, 5],
   },
 ];
 
