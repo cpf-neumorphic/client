@@ -6,7 +6,8 @@ export default (props) => {
   return (
     <>
       <Wrapper onclick="location.href='#';">
-        <IconContainer>{React.createElement(FAIcon["FaHome"])}</IconContainer>
+        {/* <IconContainer>{React.createElement(FAIcon["FaHome"])}</IconContainer> */}
+        <IconContainer>{React.createElement(FAIcon[props.icon])}</IconContainer>
         <Card>
           <Header>{props.header}</Header>
           <Text>{props.text}</Text>

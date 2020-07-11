@@ -75,9 +75,13 @@ export default (props) => {
 
 const landingCards = (
   <>
-    <LandingCard icon="Zap" header="View" text="Your statements" />
-    <LandingCard icon="Bell" header="Manage" text="Your accounts" />
-    <LandingCard icon="Bell" header="Appointments" text="Create & modify" />
+    <LandingCard icon="FaEye" header="View" text="Your statements" />
+    <LandingCard icon="FaAddressCard" header="Manage" text="Your accounts" />
+    <LandingCard
+      icon="FaCalendarCheck"
+      header="Appointments"
+      text="Create & modify"
+    />
   </>
 );
 
