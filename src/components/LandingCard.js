@@ -6,7 +6,6 @@ export default (props) => {
   return (
     <>
       <Wrapper onclick="location.href='#';">
-        {/* <IconContainer>{React.createElement(FAIcon["FaHome"])}</IconContainer> */}
         <IconContainer>{React.createElement(FAIcon[props.icon])}</IconContainer>
         <Card>
           <Header>{props.header}</Header>
@@ -30,10 +29,12 @@ const IconContainer = styled.div`
   height: 70px;
   width: 70px;
   margin-top: 15px;
-  margin-bottom: -30px;
+  margin-bottom: -37px;
   z-index: 1;
   font-size: 36px;
   text-align: center;
+  justify-content: center;
+  line-height: 60px;
 
   color: #ffffff;
   border-radius: 40px;
