@@ -25,7 +25,7 @@ const dictionary = [
       {
         pageId: 0,
         pageSlug: "/demo_videos",
-        pageIcon: "FaHome",
+        pageIcon: "FaFileVideo",
         pageTitle: "Demo Videos",
         pageDescription:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
@@ -33,7 +33,7 @@ const dictionary = [
       {
         pageId: 1,
         pageSlug: "/giro_status",
-        pageIcon: "FaCalculator",
+        pageIcon: "FaMoneyCheckAlt",
         pageTitle: "GIRO Application Status",
         pageDescription:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
@@ -41,7 +41,7 @@ const dictionary = [
       {
         pageId: 2,
         pageSlug: "/transaction_history",
-        pageIcon: "FaHome",
+        pageIcon: "FaListAlt",
         pageTitle: "Transaction History Statement",
         pageDescription:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
@@ -49,7 +49,7 @@ const dictionary = [
       {
         pageId: 3,
         pageSlug: "/contribution_history",
-        pageIcon: "FaHome",
+        pageIcon: "FaListAlt",
         pageTitle: "Contribution History Statement",
         pageDescription:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
@@ -63,7 +63,7 @@ const dictionary = [
       {
         pageId: 4,
         pageSlug: "/contact_information",
-        pageIcon: "FaHome",
+        pageIcon: "FaPhoneSquareAlt",
         pageTitle: "Contact Information",
         pageDescription:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
@@ -71,7 +71,7 @@ const dictionary = [
       {
         pageId: 5,
         pageSlug: "/topup_retirement",
-        pageIcon: "FaHome",
+        pageIcon: "FaBlind",
         pageTitle: "Top up my Retirement Account",
         pageDescription:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
@@ -79,7 +79,7 @@ const dictionary = [
       {
         pageId: 6,
         pageSlug: "/repay_education",
-        pageIcon: "FaHome",
+        pageIcon: "FaGraduationCap",
         pageTitle: "Repayment of Education Loan",
         pageDescription:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
@@ -93,7 +93,7 @@ const dictionary = [
       {
         pageId: 7,
         pageSlug: "/appointment",
-        pageIcon: "FaHome",
+        pageIcon: "FaCalendarAlt",
         pageTitle: "CPF Appointment Service",
         pageDescription:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
@@ -101,7 +101,7 @@ const dictionary = [
       {
         pageId: 8,
         pageSlug: "/medical_appointment",
-        pageIcon: "FaHome",
+        pageIcon: "FaNotesMedical",
         pageTitle: "CPF e-Medical Appointment Service",
         pageDescription:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae auctor eu augue ut lectus.",
