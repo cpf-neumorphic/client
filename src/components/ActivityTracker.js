@@ -12,7 +12,7 @@ export const ActivityTracker = (props) => {
 
   const [prevPathname, setPrevPathname] = useState(location.pathname);
 
-  const timeout = 5000;
+  const timeout = 10000;
   const lastActive = useRef(Date.now());
   const getActiveTime = () => Date.now() - lastActive.current - timeout;
 
@@ -24,7 +24,7 @@ export const ActivityTracker = (props) => {
     if (prevPathname !== location.pathname) {
       const activeTime = getActiveTime() + timeout; // Ignore timeout
 
-      // TODO: updateUsage(currentUser.nric, prevPathname, activeTime);
+      updateUsage(currentUser.nric, prevPathname, activeTime);
       console.log(
         `onPageChange: User was active for ${activeTime}ms on ${prevPathname}.`,
         `\nRedirected to ${location.pathname}.`
@@ -34,13 +34,13 @@ export const ActivityTracker = (props) => {
       lastActive.current = Date.now();
       setPrevPathname(location.pathname);
     }
-  }, [prevPathname, location.pathname]);
+  }, [prevPathname, location.pathname, currentUser]);
 
   /**
    * onIdle callback after more then 5 seconds of idle time.
    */
   const onIdle = () => {
-    // TODO: updateUsage(currentUser.nric, location.pathname, getActiveTime());
+    updateUsage(currentUser.nric, prevPathname, getActiveTime());
     console.log(
       `onIdle: User was active for ${getActiveTime()}ms on ${location.pathname}`
     );
@@ -82,6 +82,7 @@ const updateUsage = (nric, pathname, elapsedTime) => {
     page_id: String(page_idx),
     duration: String(elapsedTime),
   };
+
   axios
     .post("http://13.67.40.27:3001/api/updateUsage", JSON.stringify(sendInfor))
     .then((response) => {
