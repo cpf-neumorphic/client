@@ -82,8 +82,10 @@ const updateUsage = (nric, pathname, elapsedTime) => {
     page_id: String(page_idx),
     duration: String(elapsedTime),
   };
+  const url = process.env.REACT_APP_API || "http://13.67.40.27:3001";
+
   axios
-    .post("http://13.67.40.27:3001/api/updateUsage", JSON.stringify(sendInfor))
+    .post(url + "/api/updateUsage", JSON.stringify(sendInfor))
     .then((response) => {
       console.log(response);
     })
