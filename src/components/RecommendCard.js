@@ -6,6 +6,8 @@ import { IoMdCloseCircle } from "react-icons/io";
 import { IconContext } from "react-icons";
 import styled from "styled-components";
 
+const TITLE_CHAR_LIMIT = 50;
+
 const RecommendCard = (props) => {
   const { pageIcon, pageTitle } = props.data;
   const selected = props.selected || false;
@@ -28,8 +30,8 @@ const RecommendCard = (props) => {
           </IconContext.Provider>
         </IconCircle>
         <h2 className="my-2">
-          {pageTitle.length > 25
-            ? pageTitle.substring(0, 25) + "..."
+          {pageTitle.length > TITLE_CHAR_LIMIT
+            ? pageTitle.substring(0, TITLE_CHAR_LIMIT) + "..."
             : pageTitle}
         </h2>
       </Card>
@@ -55,7 +57,7 @@ const Wrapper = styled.div`
 `;
 
 const Card = styled.div`
-  padding: 20px;
+  padding: 18px;
   width: 280px;
   height: 200px;
   border-radius: 20px;
