@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-const Demo = (props) => {
+const DemoCategory = (props) => {
   const { title, description } = props;
 
   return (
@@ -15,17 +15,17 @@ const Demo = (props) => {
   );
 };
 
-Demo.defaultProps = {
-  title: "Demo Page Title",
-  description: "This is a demo page.",
+DemoCategory.defaultProps = {
+  title: "Demo Category Title",
+  description: "This is a demo page for each category.",
 };
 
-Demo.propTypes = {
+DemoCategory.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
 };
 
-export default Demo;
+export default DemoCategory;
 
 const LandingGreen = styled.div`
   padding: 30px 0;
