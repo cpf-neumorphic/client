@@ -4,6 +4,9 @@ import { IconContext } from "react-icons";
 import styled from "styled-components";
 import { getAllPageInfor } from "../asset/pages";
 
+const TITLE_CHAR_LIMIT = 50;
+const DESCRIPTION_CHAR_LIMIT = 85;
+
 const defaults = getAllPageInfor()[0];
 
 export default function FavouritesCard(props) {
@@ -17,14 +20,16 @@ export default function FavouritesCard(props) {
         <IconContext.Provider value={{ color: "11999e", size: "64px" }}>
           {React.createElement(FAIcon[pageIcon])}
         </IconContext.Provider>
-        <h2 className="my-2">
-          {pageTitle.length > 25
-            ? pageTitle.substring(0, 25) + "..."
-            : pageTitle}
-        </h2>
+        <div id="align-middle">
+          <h2>
+            {pageTitle.length > TITLE_CHAR_LIMIT
+              ? pageTitle.substring(0, TITLE_CHAR_LIMIT) + "..."
+              : pageTitle}
+          </h2>
+        </div>
         <p>
-          {pageDescription.length > 85
-            ? pageDescription.substring(0, 85) + "..."
+          {pageDescription.length > DESCRIPTION_CHAR_LIMIT
+            ? pageDescription.substring(0, DESCRIPTION_CHAR_LIMIT) + "..."
             : pageDescription}
         </p>
       </Card>
@@ -37,9 +42,9 @@ const Wrapper = styled.div`
 `;
 
 const Card = styled.div`
-  padding: 20px;
-  width: 280px;
-  height: 280px;
+  padding: 18px;
+  width: 300px;
+  height: 250px;
   border-radius: 20px;
   overflow: hidden;
   cursor: pointer;
@@ -49,8 +54,16 @@ const Card = styled.div`
     transition: all 0.5s ease-out;
   }
 
+  & div#align-middle {
+    display: flex;
+    align-items: center;
+    height: 57px;
+    margin: 10px 0;
+  }
+
   & h2 {
     font-size: 1.5rem;
+    margin: 0;
   }
 
   ${(props) => {

@@ -6,6 +6,8 @@ import { IoMdCloseCircle } from "react-icons/io";
 import { IconContext } from "react-icons";
 import styled from "styled-components";
 
+const TITLE_CHAR_LIMIT = 50;
+
 const RecommendCard = (props) => {
   const { pageIcon, pageTitle } = props.data;
   const selected = props.selected || false;
@@ -27,11 +29,13 @@ const RecommendCard = (props) => {
             {React.createElement(FAIcon[pageIcon])}
           </IconContext.Provider>
         </IconCircle>
-        <h2 className="my-2">
-          {pageTitle.length > 25
-            ? pageTitle.substring(0, 25) + "..."
-            : pageTitle}
-        </h2>
+        <div id="align-middle">
+          <h2>
+            {pageTitle.length > TITLE_CHAR_LIMIT
+              ? pageTitle.substring(0, TITLE_CHAR_LIMIT) + "..."
+              : pageTitle}
+          </h2>
+        </div>
       </Card>
     </Wrapper>
   );
@@ -55,9 +59,8 @@ const Wrapper = styled.div`
 `;
 
 const Card = styled.div`
-  padding: 20px;
-  width: 280px;
-  height: 200px;
+  padding: 18px;
+  width: 300px;
   border-radius: 20px;
   overflow: hidden;
   text-align: center;
@@ -68,8 +71,17 @@ const Card = styled.div`
     transition: box-shadow 0.5s ease-out;
   }
 
+  & div#align-middle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 57px;
+    margin: 10px 0;
+  }
+
   & h2 {
     font-size: 1.5rem;
+    margin: 0;
   }
 
   ${(props) => {

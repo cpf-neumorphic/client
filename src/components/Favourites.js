@@ -13,7 +13,6 @@ const all_favourites = getAllPageInfor();
 export default function Favourites(props) {
   const { currentUser } = useContext(UserContext);
   const defaults = currentUser.favouries;
-  console.log(defaults);
 
   const history = useHistory();
   const [favourites, setFavourites] = useState(props.userFavouries || defaults);

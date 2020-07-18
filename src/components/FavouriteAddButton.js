@@ -9,9 +9,9 @@ const Wrapper = styled.div`
 `;
 
 const Card = styled.div`
-  padding: 20px;
-  width: 280px;
-  height: 280px;
+  padding: 18px;
+  width: 300px;
+  height: 250px;
   border-radius: 20px;
   overflow: hidden;
   display: flex;
