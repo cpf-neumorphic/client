@@ -9,7 +9,7 @@ import SearchBar from "../components/SearchBar2";
 import Favourites from "../components/Favourites";
 import RecommendCard from "../components/RecommendCard";
 import { UserContext } from "../contexts/UserContext";
-import { getPageInforFromPageId } from "../asset/pages";
+import { getPageInforFromPageId, getAllCategoryInfor } from "../asset/pages";
 
 import helloImg from "../img/landing-hello.png";
 
@@ -44,7 +44,15 @@ export default (props) => {
             <SearchBar></SearchBar>
           </div>
         </LandingGreen>
-        <Scrollable center={1}>{landingCards}</Scrollable>
+        <Scrollable center={1}>
+          {getAllCategoryInfor().map((category) => (
+            <LandingCard
+              icon={category.categoryIcon}
+              header={category.categoryTitle}
+              text={category.categoryDescription}
+            />
+          ))}
+        </Scrollable>
       </Section>
       <Section>
         <SectionHeader header="Favourites" text="You mostly used these" />
@@ -72,18 +80,6 @@ export default (props) => {
     </>
   );
 };
-
-const landingCards = (
-  <>
-    <LandingCard icon="FaEye" header="View" text="Your statements" />
-    <LandingCard icon="FaAddressCard" header="Manage" text="Your accounts" />
-    <LandingCard
-      icon="FaCalendarCheck"
-      header="Appointments"
-      text="Create & modify"
-    />
-  </>
-);
 
 // const styles = {
 // 	Container: {
