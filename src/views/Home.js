@@ -45,11 +45,15 @@ export default (props) => {
           </div>
         </LandingGreen>
         <Scrollable center={1}>
-          {getAllCategoryInfor().map((category) => (
+          {getAllCategoryInfor().map((category, i) => (
             <LandingCard
+              key={i}
               icon={category.categoryIcon}
               header={category.categoryTitle}
               text={category.categoryDescription}
+              onClick={() => {
+                history.push(category.categorySlug);
+              }}
             />
           ))}
         </Scrollable>

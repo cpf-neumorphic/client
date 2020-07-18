@@ -1,17 +1,41 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
+import Scrollable from "../components/Scrollable";
+import FavouriteCard from "../components/FavouriteCard";
+import { getAllCategoryInfor } from "../asset/pages";
+
 const DemoCategory = (props) => {
   const { title, description } = props;
+  const history = useHistory();
 
   return (
-    <LandingGreen>
-      <div className="container">
-        <h1>{title}</h1>
-        <p>{description}</p>
-      </div>
-    </LandingGreen>
+    <>
+      <LandingGreen>
+        <div className="container">
+          <h1>{title}</h1>
+          <p>{description}</p>
+        </div>
+      </LandingGreen>
+
+      <Scrollable className="my-5">
+        {getAllCategoryInfor()
+          .find(
+            (category) => category.categorySlug === history.location.pathname
+          )
+          .categoryPages.map((page, i) => (
+            <FavouriteCard
+              key={i}
+              data={page}
+              onClick={() => {
+                history.push(page.pageSlug);
+              }}
+            />
+          ))}
+      </Scrollable>
+    </>
   );
 };
 

@@ -5,7 +5,7 @@ import * as FAIcon from "react-icons/fa";
 export default (props) => {
   return (
     <>
-      <Wrapper onclick="location.href='#';">
+      <Wrapper onClick={props.onClick}>
         <IconContainer>{React.createElement(FAIcon[props.icon])}</IconContainer>
         <Card>
           <Header>{props.header}</Header>

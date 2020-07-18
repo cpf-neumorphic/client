@@ -142,12 +142,12 @@ const getPageIdFromSlug = (pageSlug) => {
  * @param {number} categoryId
  * @returns {(string|number)} categoryLabel of given categoryId
  */
-const getCategoryLabelFromId = (categoryId) => {
-  const categoryGroup = dictionary.find((grp) => grp.categoryId === categoryId);
+// const getCategoryLabelFromId = (categoryId) => {
+//   const categoryGroup = dictionary.find((grp) => grp.categoryId === categoryId);
 
-  if (categoryGroup) return categoryGroup.categoryTitle;
-  return -1; // Not found
-};
+//   if (categoryGroup) return categoryGroup.categoryTitle;
+//   return -1; // Not found
+// };
 
 /**
  * Find the corresponding pageInfor from pageID. Will return -1 if not found.
@@ -200,7 +200,7 @@ export default dictionary;
 
 export {
   getPageIdFromSlug,
-  getCategoryLabelFromId,
+  // getCategoryLabelFromId,
   getPageInforFromPageId,
   getAllPageInfor,
   getAllCategoryInfor,
