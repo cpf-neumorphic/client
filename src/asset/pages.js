@@ -12,7 +12,10 @@
  * CategoryGroup definition
  * @typedef {Object} CategoryGroup
  * @property {number} categoryId - Category ID
- * @property {string} categoryLabel - Category label
+ * @property {string} categoryIcon - CategoryIcon
+ * @property {string} categorySlug - Category slug
+ * @property {string} categoryTitle - Category label
+ * @property {string} categoryDescription - Category description
  * @property {Array.<Page>} categoryPages - Pages belonging to the category
  */
 
@@ -20,7 +23,10 @@
 const dictionary = [
   {
     categoryId: 0,
-    categoryLabel: "View",
+    categoryIcon: "FaEye",
+    categoryTitle: "View",
+    categorySlug: "/view",
+    categoryDescription: "Your statements",
     categoryPages: [
       {
         pageId: 0,
@@ -58,7 +64,10 @@ const dictionary = [
   },
   {
     categoryId: 1,
-    categoryLabel: "Manage",
+    categoryIcon: "FaAddressCard",
+    categoryTitle: "Manage",
+    categorySlug: "/manage",
+    categoryDescription: "Your accounts",
     categoryPages: [
       {
         pageId: 4,
@@ -88,7 +97,10 @@ const dictionary = [
   },
   {
     categoryId: 2,
-    categoryLabel: "Appointments",
+    categoryIcon: "FaCalendarCheck",
+    categoryTitle: "Appointments",
+    categorySlug: "/appointments",
+    categoryDescription: "Create & modify",
     categoryPages: [
       {
         pageId: 7,
@@ -130,12 +142,12 @@ const getPageIdFromSlug = (pageSlug) => {
  * @param {number} categoryId
  * @returns {(string|number)} categoryLabel of given categoryId
  */
-const getCategoryLabelFromId = (categoryId) => {
-  const categoryGroup = dictionary.find((grp) => grp.categoryId === categoryId);
+// const getCategoryLabelFromId = (categoryId) => {
+//   const categoryGroup = dictionary.find((grp) => grp.categoryId === categoryId);
 
-  if (categoryGroup) return categoryGroup.categoryLabel;
-  return -1; // Not found
-};
+//   if (categoryGroup) return categoryGroup.categoryTitle;
+//   return -1; // Not found
+// };
 
 /**
  * Find the corresponding pageInfor from pageID. Will return -1 if not found.
@@ -153,10 +165,11 @@ const getPageInforFromPageId = (pageId) => {
 };
 
 /**
- * Get all page information available. Will return -1 if not found.
+ * Get all page information available.
  * @returns {Page[]} page data of given pageID
  */
 const getAllPageInfor = () => {
+  /** @type {Page[]} */
   const allPages = [];
 
   for (let { categoryPages } of dictionary) {
@@ -168,11 +181,27 @@ const getAllPageInfor = () => {
   return allPages;
 };
 
+/**
+ * Get all category information available.
+ * @returns {CategoryGroup[]} page data of given pageID
+ */
+const getAllCategoryInfor = () => {
+  /** @type {CategoryGroup[]} */
+  const allCategories = [];
+
+  for (let category of dictionary) {
+    allCategories.push(category);
+  }
+
+  return allCategories;
+};
+
 export default dictionary;
 
 export {
   getPageIdFromSlug,
-  getCategoryLabelFromId,
+  // getCategoryLabelFromId,
   getPageInforFromPageId,
   getAllPageInfor,
+  getAllCategoryInfor,
 };
