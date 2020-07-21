@@ -24,7 +24,11 @@ export default (props) => {
     <>
       <div className="sgds-masthead">
         <Container>
-          <a href="https://www.gov.sg" target="_blank">
+          <a
+            href="https://www.gov.sg"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <span className="sgds-icon sgds-icon-sg-crest"></span>
             <span className="is-text">
               A Singapore Government Agency Website
