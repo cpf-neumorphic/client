@@ -1,17 +1,17 @@
-import Container from "react-bootstrap/Container";
 import styled from "styled-components";
 
-export default styled(Container)`
-  display: flex;
-  justify-content: ${(props) => (props.center ? "center" : "space-between")};
-  flex-wrap: wrap;
+export default styled.div`
+  max-width: 1140px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
+  align-items: center;
 
+  /* Mobile horizontal scroll */
   @media (max-width: 768px) {
-    justify-content: flex-start;
-    flex-wrap: nowrap;
+    grid-auto-columns: minmax(300px, 1fr);
+    grid-auto-flow: column;
     overflow-x: auto;
-    margin: 0;
-    padding: 0;
-    max-width: none;
   }
 `;
