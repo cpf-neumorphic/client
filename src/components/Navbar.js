@@ -22,11 +22,13 @@ export default (props) => {
 
   return (
     <>
-      <div class="sgds-masthead">
+      <div className="sgds-masthead">
         <Container>
           <a href="https://www.gov.sg" target="_blank">
-            <span class="sgds-icon sgds-icon-sg-crest"></span>
-            <span class="is-text">A Singapore Government Agency Website</span>
+            <span className="sgds-icon sgds-icon-sg-crest"></span>
+            <span className="is-text">
+              A Singapore Government Agency Website
+            </span>
           </a>
         </Container>
       </div>
