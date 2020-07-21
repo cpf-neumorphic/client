@@ -44,7 +44,7 @@ export default (props) => {
             <SearchBar></SearchBar>
           </div>
         </LandingGreen>
-        <Scrollable center={1}>
+        <Scrollable>
           {getAllCategoryInfor().map((category, i) => (
             <LandingCard
               key={i}
