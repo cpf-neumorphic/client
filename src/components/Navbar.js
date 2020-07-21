@@ -21,18 +21,28 @@ export default (props) => {
   const { currentUser } = useContext(UserContext);
 
   return (
-    <Nav>
-      <Container className="h-100 d-flex align-items-center">
-        <Link to="/">
-          <img src={CPFLogo} alt="CPFB Logo" style={{ height: "60px" }} />
-        </Link>
-        <Menu>
-          <Link to="/login">
-            <FontAwesomeIcon icon={faUser} className="mr-3" />
-            {currentUser.name}
+    <>
+      <div class="sgds-masthead">
+        <Container>
+          <a href="https://www.gov.sg" target="_blank">
+            <span class="sgds-icon sgds-icon-sg-crest"></span>
+            <span class="is-text">A Singapore Government Agency Website</span>
+          </a>
+        </Container>
+      </div>
+      <Nav>
+        <Container className="h-100 d-flex align-items-center">
+          <Link to="/">
+            <img src={CPFLogo} alt="CPFB Logo" style={{ height: "60px" }} />
           </Link>
-        </Menu>
-      </Container>
-    </Nav>
+          <Menu>
+            <Link to="/login">
+              <FontAwesomeIcon icon={faUser} className="mr-3" />
+              {currentUser.name}
+            </Link>
+          </Menu>
+        </Container>
+      </Nav>
+    </>
   );
 };
