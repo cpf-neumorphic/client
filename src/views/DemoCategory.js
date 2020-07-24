@@ -7,6 +7,8 @@ import Scrollable from "../components/Scrollable";
 import FavouriteCard from "../components/FavouriteCard";
 import { getAllCategoryInfor } from "../asset/pages";
 
+import imgAccountOverview from "../img/account-overview.jpg";
+
 const DemoCategory = (props) => {
   const { title, description } = props;
   const history = useHistory();
@@ -17,6 +19,14 @@ const DemoCategory = (props) => {
         <div className="container">
           <h1>{title}</h1>
           <p>{description}</p>
+          {title === "View" && (
+            <img
+              style={{ maxWidth: "650px" }}
+              src={imgAccountOverview}
+              alt="Account Overview"
+              draggable="false"
+            />
+          )}
         </div>
       </LandingGreen>
 
