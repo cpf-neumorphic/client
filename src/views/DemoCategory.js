@@ -21,7 +21,7 @@ const DemoCategory = (props) => {
           <p>{description}</p>
           {title === "View" && (
             <img
-              style={{ maxWidth: "650px" }}
+              style={{ width: "650px" }}
               src={imgAccountOverview}
               alt="Account Overview"
               draggable="false"
