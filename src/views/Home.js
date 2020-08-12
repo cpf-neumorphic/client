@@ -8,7 +8,7 @@ import LandingCard from "../components/LandingCard";
 import SearchBar from "../components/SearchBar2";
 import Favourites from "../components/Favourites";
 import RecommendCard from "../components/RecommendCard";
-import Balance from "../components/Balance";
+import Balance from "../components/UserBalance";
 import { UserContext } from "../contexts/UserContext";
 import { getPageInforFromPageId, getAllCategoryInfor } from "../asset/pages";
 
