@@ -8,6 +8,7 @@ import LandingCard from "../components/LandingCard";
 import SearchBar from "../components/SearchBar2";
 import Favourites from "../components/Favourites";
 import RecommendCard from "../components/RecommendCard";
+import Balance from "../components/Balance";
 import { UserContext } from "../contexts/UserContext";
 import { getPageInforFromPageId, getAllCategoryInfor } from "../asset/pages";
 
@@ -40,6 +41,7 @@ export default (props) => {
               draggable="false"
             />
             <h1>Hello, {currentUser.name}</h1>
+            <Balance data={currentUser}></Balance>
             <p>What would you like to do today?</p>
             <SearchBar></SearchBar>
           </div>

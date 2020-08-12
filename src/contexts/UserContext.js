@@ -15,12 +15,18 @@ const demoUsers = [
     name: "Billy Martin",
     recommendations: [3, 0, 2],
     favouries: [0, 1, 2, 3, 4],
+    OA: 1155.22,
+    SA: 315.06,
+    MA: 630.12,
   },
   {
     nric: "S6548272X",
     name: "Evelyn Kane",
     recommendations: [6, 3, 5],
     favouries: [3, 4, 5, 6, 7],
+    OA: 5011.22,
+    SA: 10010.06,
+    MA: 2020.12,
   },
 ];
 
