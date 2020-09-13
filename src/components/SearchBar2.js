@@ -13,46 +13,55 @@ const options = [
   { label: <b>View</b>, value: "#" },
   {
     label: "🎞️\xa0\xa0Demo Videos",
+    text: "Demo Videos",
     value: "demo_videos",
   },
   {
     label: "💸\xa0\xa0GIRO Application Status",
+    text: "GIRO Application Status",
     value: "giro_status",
     syn: "money",
   },
   {
     label: "📝\xa0\xa0Transaction History Statement",
+    text: "Transaction History Statement",
     value: "transaction_history",
     syn: "money",
   },
   {
     label: "📝\xa0\xa0Contribution History Statement",
+    text: "Contribution History Statement",
     value: "contribution_history",
     syn: "money",
   },
   { label: <b>Manage</b>, value: "#" },
   {
     label: "☎️\xa0\xa0Contact Information",
+    text: "Contact Information",
     value: "contact_information",
     syn: "phone",
   },
   {
     label: "👴\xa0\xa0Top up my Retirement Account",
+    text: "Top up my Retirement Account",
     value: "topup_retirement",
     syn: "money",
   },
   {
     label: "🎓\xa0\xa0Repayment of Education Loan",
+    text: "Repayment of Education Loan",
     value: "repay_education",
     syn: "money",
   },
   { label: <b>Appointments</b>, value: "#" },
   {
     label: "📅\xa0\xa0CPF Appointment Service",
+    text: "CPF Appointment Service",
     value: "appointment",
   },
   {
     label: "💉\xa0\xa0CPF e-Medical Appointment Service",
+    text: "CPF e-Medical Appointment Service",
     value: "medical_appointment",
   },
 ];
@@ -106,19 +115,19 @@ function customTheme(theme) {
 }
 
 function filterOptions(options, filterString) {
-  const { syn, label } = options.data;
-  if (typeof label === "string") {
+  const { syn, text } = options.data;
+  if (text) {
     if (syn)
       return (
-        syn.includes(filterString.toLowerCase()) ||
+        syn.toLowerCase().includes(filterString.toLowerCase()) ||
         filterString.includes(syn.toLowerCase()) ||
-        label.toLowerCase().includes(filterString.toLowerCase()) ||
-        filterString.toLowerCase().includes(label.toLowerCase())
+        text.toLowerCase().includes(filterString.toLowerCase()) ||
+        filterString.toLowerCase().includes(text.toLowerCase())
       );
     else
       return (
-        label.toLowerCase().includes(filterString.toLowerCase()) ||
-        filterString.toLowerCase().includes(label.toLowerCase())
+        text.toLowerCase().includes(filterString.toLowerCase()) ||
+        filterString.toLowerCase().includes(text.toLowerCase())
       );
   } else return true;
 }
