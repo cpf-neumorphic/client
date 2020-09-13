@@ -18,27 +18,33 @@ const options = [
   {
     label: "💸\xa0\xa0GIRO Application Status",
     value: "giro_status",
+    syn: "money",
   },
   {
     label: "📝\xa0\xa0Transaction History Statement",
     value: "transaction_history",
+    syn: "money",
   },
   {
     label: "📝\xa0\xa0Contribution History Statement",
     value: "contribution_history",
+    syn: "money",
   },
   { label: <b>Manage</b>, value: "#" },
   {
     label: "☎️\xa0\xa0Contact Information",
     value: "contact_information",
+    syn: "phone",
   },
   {
     label: "👴\xa0\xa0Top up my Retirement Account",
     value: "topup_retirement",
+    syn: "money",
   },
   {
     label: "🎓\xa0\xa0Repayment of Education Loan",
     value: "repay_education",
+    syn: "money",
   },
   { label: <b>Appointments</b>, value: "#" },
   {
@@ -55,6 +61,7 @@ const styledSelect = {
   maxWidth: "400px",
   margin: "0 auto",
   zIndex: "1000000",
+  textAlign: "center",
 };
 
 const customStyle = {
@@ -98,6 +105,24 @@ function customTheme(theme) {
   };
 }
 
+function filterOptions(options, filterString) {
+  const { syn, label } = options.data;
+  if (typeof label === "string") {
+    if (syn)
+      return (
+        syn.includes(filterString.toLowerCase()) ||
+        filterString.includes(syn.toLowerCase()) ||
+        label.toLowerCase().includes(filterString.toLowerCase()) ||
+        filterString.toLowerCase().includes(label.toLowerCase())
+      );
+    else
+      return (
+        label.toLowerCase().includes(filterString.toLowerCase()) ||
+        filterString.toLowerCase().includes(label.toLowerCase())
+      );
+  } else return true;
+}
+
 export default (props) => {
   const history = useHistory();
   return (
@@ -107,11 +132,12 @@ export default (props) => {
           className="selectup"
           options={options}
           theme={customTheme}
-          placeholder="🔍 What are you looking for?"
+          placeholder="🔍 Ask me anything!"
           onChange={(feature) => {
             console.log(feature.value);
             history.push("/" + feature.value);
           }}
+          filterOption={filterOptions}
           styles={customStyle}
         />
       </div>
