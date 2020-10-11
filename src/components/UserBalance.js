@@ -21,16 +21,16 @@ export default function UserBalance(props) {
     <MainWrapper>
       <HeaderWrapper>
         <Sub style={{ textAlign: "left" }}>
-          <h4>Total balance</h4>
+          <p style={{ fontWeight: "550" }}>Total balance</p>
         </Sub>
         <Sub style={{ textAlign: "right" }}>
-          <h2>
+          <p style={{ fontWeight: "bold", fontSize: "30px" }}>
             $
             {(OA + SA + MA).toLocaleString(undefined, {
               minimumFractionDigits: 2,
               maximumFractionDigits: 2,
             })}
-          </h2>
+          </p>
         </Sub>
       </HeaderWrapper>
       <BalanceBarWrapper>
@@ -51,8 +51,9 @@ export default function UserBalance(props) {
         <Content>
           <Indicator style={{ backgroundColor: "#40514E" }}></Indicator>
           <div style={{ textAlign: "left" }}>
-            <p>
-              Ordinary Account (OA) <br /> $
+            <p style={{ margin: "0px" }}>
+              Ordinary Account (OA)
+              <br />$
               {OA.toLocaleString(undefined, {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2,
@@ -63,7 +64,7 @@ export default function UserBalance(props) {
         <Content>
           <Indicator style={{ backgroundColor: "#11999E" }}></Indicator>
           <div style={{ textAlign: "left" }}>
-            <p>
+            <p style={{ margin: "0px" }}>
               Special Account (SA) <br /> $
               {SA.toLocaleString(undefined, {
                 minimumFractionDigits: 2,
@@ -75,7 +76,7 @@ export default function UserBalance(props) {
         <Content>
           <Indicator style={{ backgroundColor: "#30E3CA" }}></Indicator>
           <div style={{ textAlign: "left" }}>
-            <p>
+            <p style={{ margin: "0px" }}>
               Medisave Account (MA) <br /> $
               {MA.toLocaleString(undefined, {
                 minimumFractionDigits: 2,
@@ -92,26 +93,24 @@ export default function UserBalance(props) {
 const MainWrapper = styled.div`
   display: grid;
   grid-template-rows: auto auto auto;
-  width: 60%;
-  margin-left: auto;
-  margin-right: auto;
 `;
 
 const HeaderWrapper = styled.div`
   display: grid;
   grid-template-columns: auto auto;
   align-items: center;
+  padding-bottom: 35px;
 `;
 
 const Sub = styled.div`
-  justify-items: center;
-  text-align: right;
+  display: grid;
 `;
 
 const BalanceBarWrapper = styled.div`
   height: 50px;
   width: 100%;
   position: relative;
+  margin-bottom: 35px;
 `;
 
 const BalanceBar = styled.div`
