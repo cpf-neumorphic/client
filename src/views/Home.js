@@ -31,6 +31,20 @@ const Wrapper = styled.div`
   justify-items: center;
   align-items: center;
   grid-template-columns: 50% 50%;
+  @media (max-width: 991px) {
+    grid-template-columns: auto;
+  }
+`;
+
+const SummaryWrapper = styled.div`
+  background: #51605d;
+  border-bottom-right-radius: 40px;
+  border-bottom-left-radius: 40px;
+  padding: 35px;
+  @media (max-width: 991px) {
+    grid-template-columns: auto;
+    border-radius: 40px;
+  }
 `;
 
 export default (props) => {
@@ -43,7 +57,7 @@ export default (props) => {
         <LandingGreen>
           <div className="container">
             <Wrapper>
-              <div>
+              <div style={{ paddingBottom: "25px" }}>
                 <img
                   style={{ height: "120px", margin: "2rem auto" }}
                   alt="Hello there"
@@ -54,17 +68,10 @@ export default (props) => {
                 <p>What would you like to do today?</p>
                 <SearchBar></SearchBar>
               </div>
-              <div
-                style={{
-                  background: "#51605D",
-                  borderBottomLeftRadius: "40px",
-                  borderBottomRightRadius: "40px",
-                  padding: "40px",
-                }}
-              >
+              <SummaryWrapper>
                 {/* <PieChartBalance data={currentUser} /> */}
                 <PieChartBalancev2 data={currentUser} />
-              </div>
+              </SummaryWrapper>
             </Wrapper>
           </div>
         </LandingGreen>

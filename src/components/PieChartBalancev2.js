@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import { PieChart } from "react-minimal-pie-chart";
 import styled from "styled-components";
 
+const MainWrapper = styled.div`
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+`;
+
 const Wrapper = styled.div`
   display: grid;
-  // justify-items: center;
-  // align-items: center;
   grid-template-rows: auto auto auto;
 `;
 
@@ -60,78 +64,84 @@ export default function PieChartBalancev2(props) {
   // });
 
   return (
-    <div>
-      <h2
-        style={{
-          color: "#fff",
-          margin: "0px",
-          fontWeight: "bold",
-          fontSize: "30px",
-        }}
-      >
-        Account Summary
-      </h2>
-      <PieChart
-        style={{
-          fontFamily: "Quicksand",
-          fontSize: "8px",
-        }}
-        data={data}
-        radius={PieChart.defaultProps.radius - 6}
-        lineWidth={20}
-        segmentsStyle={{ transition: "stroke .3s", cursor: "pointer" }}
-        // segmentsShift={(index) => (index === selected ? 6 : 1)}
-        animate
-        label={({ dataEntry }) =>
-          "$" +
-          dataEntry.value.toLocaleString(undefined, {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-          })
-        }
-        labelPosition={112}
-        labelStyle={{
-          fill: "#fff",
-        }}
-        viewBoxSize={[180, 180]}
-        center={[90, 90]}
-      >
+    <MainWrapper>
+      <div>
+        <h2
+          style={{
+            color: "#fff",
+            margin: "0px",
+            fontWeight: "bold",
+            fontSize: "30px",
+          }}
+        >
+          Account Summary
+        </h2>
         <PieChart
           style={{
             fontFamily: "Quicksand",
-            fill: "#fff",
+            fontSize: "8px",
           }}
-          data={header}
-          lineWidth={0}
+          data={data}
+          radius={PieChart.defaultProps.radius - 6}
+          lineWidth={20}
+          segmentsStyle={{ transition: "stroke .3s", cursor: "pointer" }}
+          // segmentsShift={(index) => (index === selected ? 6 : 1)}
+          animate
           label={({ dataEntry }) =>
             "$" +
-            dataEntry.total.toLocaleString(undefined, {
+            dataEntry.value.toLocaleString(undefined, {
               minimumFractionDigits: 2,
               maximumFractionDigits: 2,
             })
           }
-          labelPosition={100}
-          viewBoxSize={[150, 150]}
-          center={[75, 75]}
-        />
-      </PieChart>
-      <Wrapper>
-        {data.map((data) => {
-          return (
-            <Wrapper2>
-              <div
-                style={{
-                  background: data.color,
-                  width: "20px",
-                  height: "20px",
-                  borderRadius: "50%",
-                }}
-              ></div>
-              <div style={{ color: "#fff", fontSize: "80%" }}>{data.title}</div>
-            </Wrapper2>
-          );
-        })}
-      </Wrapper>
-    </div>
+          labelPosition={112}
+          labelStyle={{
+            fill: "#fff",
+          }}
+          viewBoxSize={[180, 180]}
+          center={[90, 90]}
+        >
+          <PieChart
+            style={{
+              fontFamily: "Quicksand",
+              fill: "#fff",
+            }}
+            data={header}
+            lineWidth={0}
+            label={({ dataEntry }) =>
+              "$" +
+              dataEntry.total.toLocaleString(undefined, {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+              })
+            }
+            labelPosition={100}
+            viewBoxSize={[150, 150]}
+            center={[75, 75]}
+          />
+        </PieChart>
+      </div>
+      <div>
+        <Wrapper>
+          {data.map((data) => {
+            return (
+              <Wrapper2>
+                <div
+                  style={{
+                    background: data.color,
+                    width: "20px",
+                    height: "20px",
+                    borderRadius: "50%",
+                  }}
+                ></div>
+                <div style={{ color: "#fff", fontSize: "80%" }}>
+                  {data.title}
+                </div>
+              </Wrapper2>
+            );
+          })}
+        </Wrapper>
+      </div>
+    </MainWrapper>
   );
 }
