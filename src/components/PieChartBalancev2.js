@@ -4,13 +4,14 @@ import styled from "styled-components";
 
 const MainWrapper = styled.div`
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
   align-items: center;
 `;
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-rows: auto auto auto;
+  grid-template-columns: auto auto;
+  align-items: center;
 `;
 
 const Wrapper2 = styled.div`
@@ -34,7 +35,7 @@ export default function PieChartBalancev2(props) {
   const header = [{ total: total }];
   const data = [
     {
-      color: "#FFFFFF",
+      color: "#7BB8B0",
       title: "Ordinary Account",
       value: OA,
     },
@@ -68,7 +69,7 @@ export default function PieChartBalancev2(props) {
       <div>
         <h2
           style={{
-            color: "#fff",
+            color: "#000",
             margin: "0px",
             fontWeight: "bold",
             fontSize: "30px",
@@ -76,53 +77,56 @@ export default function PieChartBalancev2(props) {
         >
           Account Summary
         </h2>
-        <PieChart
-          style={{
-            fontFamily: "Quicksand",
-            fontSize: "8px",
-          }}
-          data={data}
-          radius={PieChart.defaultProps.radius - 6}
-          lineWidth={20}
-          segmentsStyle={{ transition: "stroke .3s", cursor: "pointer" }}
-          // segmentsShift={(index) => (index === selected ? 6 : 1)}
-          animate
-          label={({ dataEntry }) =>
-            "$" +
-            dataEntry.value.toLocaleString(undefined, {
-              minimumFractionDigits: 2,
-              maximumFractionDigits: 2,
-            })
-          }
-          labelPosition={112}
-          labelStyle={{
-            fill: "#fff",
-          }}
-          viewBoxSize={[180, 180]}
-          center={[90, 90]}
-        >
+      </div>
+
+      <Wrapper>
+        <div>
           <PieChart
             style={{
               fontFamily: "Quicksand",
-              fill: "#fff",
+              fontSize: "8px",
             }}
-            data={header}
-            lineWidth={0}
+            data={data}
+            radius={PieChart.defaultProps.radius - 6}
+            lineWidth={20}
+            segmentsStyle={{ transition: "stroke .3s", cursor: "pointer" }}
+            // segmentsShift={(index) => (index === selected ? 6 : 1)}
+            animate
             label={({ dataEntry }) =>
               "$" +
-              dataEntry.total.toLocaleString(undefined, {
+              dataEntry.value.toLocaleString(undefined, {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2,
               })
             }
-            labelPosition={100}
-            viewBoxSize={[150, 150]}
-            center={[75, 75]}
-          />
-        </PieChart>
-      </div>
-      <div>
-        <Wrapper>
+            labelPosition={112}
+            labelStyle={{
+              fill: "#000",
+            }}
+            viewBoxSize={[160, 160]}
+            center={[80, 80]}
+          >
+            <PieChart
+              style={{
+                fontFamily: "Quicksand",
+                fill: "#000",
+              }}
+              data={header}
+              lineWidth={0}
+              label={({ dataEntry }) =>
+                "$" +
+                dataEntry.total.toLocaleString(undefined, {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })
+              }
+              labelPosition={100}
+              viewBoxSize={[150, 150]}
+              center={[75, 75]}
+            />
+          </PieChart>
+        </div>
+        <div>
           {data.map((data) => {
             return (
               <Wrapper2>
@@ -134,14 +138,14 @@ export default function PieChartBalancev2(props) {
                     borderRadius: "50%",
                   }}
                 ></div>
-                <div style={{ color: "#fff", fontSize: "80%" }}>
+                <div style={{ color: "#000", fontSize: "80%" }}>
                   {data.title}
                 </div>
               </Wrapper2>
             );
           })}
-        </Wrapper>
-      </div>
+        </div>
+      </Wrapper>
     </MainWrapper>
   );
 }

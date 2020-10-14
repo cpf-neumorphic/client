@@ -27,6 +27,7 @@ const LandingGreen = styled.div`
 `;
 
 const Wrapper = styled.div`
+  padding-top: 30px;
   display: grid;
   justify-items: center;
   align-items: center;
@@ -37,10 +38,12 @@ const Wrapper = styled.div`
 `;
 
 const SummaryWrapper = styled.div`
-  background: #51605d;
-  border-bottom-right-radius: 40px;
-  border-bottom-left-radius: 40px;
+  background: #fff;
+  border-radius: 40px;
+  margin: 30px 40px;
+  // margin-top: 30px;
   padding: 35px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
   @media (max-width: 991px) {
     grid-template-columns: auto;
     border-radius: 40px;
