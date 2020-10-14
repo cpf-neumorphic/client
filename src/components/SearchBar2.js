@@ -118,8 +118,8 @@ function filterOptions(options, filterString) {
     if (text) {
       filteredWords.forEach((e1)=>text.forEach((e2)=> 
       {
-        // if(e2.includes(e1)){
-        if(e1===e2){
+        if(e1.length>=2 && e2.includes(e1)){
+        // if(e1===e2){
           // console.log("Match")
           // matches.push(e1);
           isFound = true;
