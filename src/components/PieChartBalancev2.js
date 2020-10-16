@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { PieChart } from "react-minimal-pie-chart";
 import styled from "styled-components";
 
@@ -29,9 +29,8 @@ const Wrapper2 = styled.div`
 export default function PieChartBalancev2(props) {
   const { OA, SA, MA } = props.data;
   const total = OA + SA + MA;
-  const [activeIndex, setActiveIndex] = useState(0);
-
   const header = [{ total: total }];
+
   const data = [
     {
       color: "#7BB8B0",

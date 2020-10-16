@@ -8,11 +8,10 @@ import FavouriteCard from "../components/FavouriteCard";
 import { getAllCategoryInfor } from "../asset/pages";
 
 import imgAccountOverview from "../img/account-overview.jpg";
-import UserBalance from "../components/UserBalance";
 import { UserContext } from "../contexts/UserContext";
 
 const DemoCategory = (props) => {
-  const { title, description, data } = props;
+  const { title, description } = props;
   const { currentUser } = useContext(UserContext);
   const history = useHistory();
   console.log(currentUser);
@@ -30,18 +29,6 @@ const DemoCategory = (props) => {
                 alt="Account Overview"
                 draggable="false"
               />
-              {/* <div style={{ display: "grid", justifyItems: "center" }}>
-                <div
-                  style={{
-                    width: "650px",
-                    background: "white",
-                    borderRadius: "20px",
-                    padding: "20px",
-                  }}
-                >
-                  <UserBalance data={currentUser} />
-                </div>
-              </div> */}
             </>
           )}
         </div>
