@@ -8,7 +8,7 @@ import LandingCard from "../components/LandingCard";
 import SearchBar from "../components/SearchBar2";
 import Favourites from "../components/Favourites";
 import RecommendCard from "../components/RecommendCard";
-import PieChartBalancev2 from "../components/PieChartBalancev2";
+import AccountSummary from "../components/AccountSummary";
 import { UserContext } from "../contexts/UserContext";
 import { getPageInforFromPageId, getAllCategoryInfor } from "../asset/pages";
 
@@ -34,14 +34,6 @@ const Wrapper = styled.div`
   @media (max-width: 1200px) {
     grid-template-columns: auto;
   }
-`;
-
-const SummaryWrapper = styled.div`
-  background: #fff;
-  border-radius: 40px;
-  margin: 30px 40px;
-  padding: 35px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.25);
 `;
 
 const HeaderImage = styled.img`
@@ -72,9 +64,7 @@ export default (props) => {
                 <p>What would you like to do today?</p>
                 <SearchBar></SearchBar>
               </div>
-              <SummaryWrapper>
-                <PieChartBalancev2 data={currentUser} />
-              </SummaryWrapper>
+              <AccountSummary data={currentUser} />
             </Wrapper>
           </div>
         </LandingGreen>

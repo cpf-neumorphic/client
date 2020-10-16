@@ -33,17 +33,17 @@ export default function PieChartBalancev2(props) {
 
   const data = [
     {
-      color: "#7BB8B0",
+      color: "#30e3ca",
       title: "Ordinary Account",
       value: OA,
     },
     {
-      color: "#AAFFF3",
+      color: "#11999e",
       title: "Special Account",
       value: SA,
     },
     {
-      color: "#30E3CA",
+      color: "#40514e",
       title: "MediSave Account",
       value: MA,
     },
@@ -51,25 +51,19 @@ export default function PieChartBalancev2(props) {
 
   return (
     <MainWrapper>
-      <div>
-        <h2
-          style={{
-            color: "#000",
-            margin: "0px",
-            fontWeight: "bold",
-            fontSize: "30px",
-          }}
-        >
-          Account Summary
-        </h2>
-      </div>
+      <h2
+        style={{
+          margin: "0px",
+        }}
+      >
+        Account Summary
+      </h2>
 
       <Wrapper>
         <div>
           <PieChart
             style={{
-              fontFamily: "Open Sans",
-              fontSize: "8px",
+              fontSize: "10px",
             }}
             data={data}
             radius={PieChart.defaultProps.radius - 6}
@@ -92,10 +86,6 @@ export default function PieChartBalancev2(props) {
             center={[90, 90]}
           >
             <PieChart
-              style={{
-                fontFamily: "Quicksand",
-                fill: "#000",
-              }}
               data={header}
               lineWidth={0}
               label={({ dataEntry }) =>
@@ -112,9 +102,9 @@ export default function PieChartBalancev2(props) {
           </PieChart>
         </div>
         <div>
-          {data.map((data) => {
+          {data.map((data, i) => {
             return (
-              <Wrapper2>
+              <Wrapper2 key={i}>
                 <div
                   style={{
                     background: data.color,
@@ -123,9 +113,7 @@ export default function PieChartBalancev2(props) {
                     borderRadius: "50%",
                   }}
                 ></div>
-                <div style={{ color: "#000", fontSize: "80%" }}>
-                  {data.title}
-                </div>
+                <div>{data.title}</div>
               </Wrapper2>
             );
           })}
