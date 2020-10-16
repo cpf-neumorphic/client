@@ -23,7 +23,11 @@ export default (props) => {
       <Header>Account Summary</Header>
       <Wrapper>
         <PieChart
-          style={{ fontSize: "9px", height: "300px" }}
+          style={{
+            fontSize: "9px",
+            height: "290px",
+            margin: "-30px auto",
+          }}
           data={accountSummaryData}
           lineWidth={20}
           segmentsStyle={{ transition: "stroke .3s" }}
@@ -36,7 +40,7 @@ export default (props) => {
           }
           labelPosition={110}
           viewBoxSize={[190, 190]}
-          center={[95, 95]}
+          center={[90, 95]}
           animate
         >
           <PieChart
@@ -51,8 +55,8 @@ export default (props) => {
               })
             }
             labelPosition={100}
-            viewBoxSize={[180, 180]}
-            center={[90, 90]}
+            viewBoxSize={[190, 190]}
+            center={[90, 95]}
           />
         </PieChart>
         <LegendWrapper>
@@ -77,33 +81,29 @@ export default (props) => {
 
 const Card = styled.div`
   padding: 20px;
+  padding-bottom: 0;
   border-radius: 40px;
   background: #fff;
   box-shadow: 0 5px 15px 0 rgba(70, 70, 70, 0.15);
 
   @media (max-width: 531px) {
     margin-top: 20px;
-  }
-
-  @media (min-width: 532px) {
-    padding-bottom: 0;
+    padding: 20px;
   }
 `;
 
 const Header = styled.h2`
   font-size: 25px;
-  margin-bottom: -30px;
+  margin: 0;
 `;
 
 const Wrapper = styled.div`
   display: grid;
   grid-auto-flow: column;
   align-items: center;
-  gap: 10px;
 
   @media (max-width: 531px) {
     grid-auto-flow: row;
-    gap: 0px;
   }
 `;
 
@@ -115,7 +115,6 @@ const LegendWrapper = styled.div`
 
   @media (max-width: 531px) {
     justify-content: center;
-    margin-top: -20px;
   }
 `;
 
