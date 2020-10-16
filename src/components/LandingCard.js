@@ -23,6 +23,11 @@ const Wrapper = styled.div`
 
   padding: 15px;
   cursor: pointer;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 `;
 
 const IconContainer = styled.div`

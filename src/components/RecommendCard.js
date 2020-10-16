@@ -56,6 +56,11 @@ export default RecommendCard;
 const Wrapper = styled.div`
   position: relative;
   padding: 15px;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 `;
 
 const Card = styled.div`
