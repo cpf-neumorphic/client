@@ -13,55 +13,49 @@ const options = [
   { label: <b>View</b>, value: "#" },
   {
     label: "🎞️\xa0\xa0Demo Videos",
-    text: "Demo Videos",
+    text: ["demo","videos"],
     value: "demo_videos",
   },
   {
     label: "💸\xa0\xa0GIRO Application Status",
-    text: "GIRO Application Status",
+    text: ["giro","application","status","money"],
     value: "giro_status",
-    syn: "money",
   },
   {
     label: "📝\xa0\xa0Transaction History Statement",
-    text: "Transaction History Statement",
+    text: ["transaction","history","statement","money"],
     value: "transaction_history",
-    syn: "money",
   },
   {
     label: "📝\xa0\xa0Contribution History Statement",
-    text: "Contribution History Statement",
+    text: ["contribution","history","statement","money"],
     value: "contribution_history",
-    syn: "money",
   },
   { label: <b>Manage</b>, value: "#" },
   {
     label: "☎️\xa0\xa0Contact Information",
-    text: "Contact Information",
+    text: ["contact","information","phone"],
     value: "contact_information",
-    syn: "phone",
   },
   {
     label: "👴\xa0\xa0Top up my Retirement Account",
-    text: "Top up my Retirement Account",
+    text: ["top","up","my","retirement","account","money"],
     value: "topup_retirement",
-    syn: "money",
   },
   {
     label: "🎓\xa0\xa0Repayment of Education Loan",
-    text: "Repayment of Education Loan",
+    text: ["repayment","of","education","loan","money"],
     value: "repay_education",
-    syn: "money",
   },
   { label: <b>Appointments</b>, value: "#" },
   {
     label: "📅\xa0\xa0CPF Appointment Service",
-    text: "CPF Appointment Service",
+    text: ["cpf","appointment","service"],
     value: "appointment",
   },
   {
     label: "💉\xa0\xa0CPF e-Medical Appointment Service",
-    text: "CPF e-Medical Appointment Service",
+    text: ["cpf","e-medical","appointment","service"],
     value: "medical_appointment",
   },
 ];
@@ -115,21 +109,29 @@ function customTheme(theme) {
 }
 
 function filterOptions(options, filterString) {
-  const { syn, text } = options.data;
-  if (text) {
-    if (syn)
-      return (
-        syn.toLowerCase().includes(filterString.toLowerCase()) ||
-        filterString.includes(syn.toLowerCase()) ||
-        text.toLowerCase().includes(filterString.toLowerCase()) ||
-        filterString.toLowerCase().includes(text.toLowerCase())
-      );
-    else
-      return (
-        text.toLowerCase().includes(filterString.toLowerCase()) ||
-        filterString.toLowerCase().includes(text.toLowerCase())
-      );
+  const { text } = options.data;
+  var filteredWords = filterString.split(/[!?. ]/)
+  // console.log(filteredWords);
+  var isFound = false;
+  // const matches = []
+  if (filterString){
+    if (text) {
+      filteredWords.forEach((e1)=>text.forEach((e2)=> 
+      {
+        if(e1.length>=2 && e2.includes(e1)){
+        // if(e1===e2){
+          // console.log("Match")
+          // matches.push(e1);
+          isFound = true;
+        }
+      }));
+      // console.log(matches)
+      return isFound;
   } else return true;
+  }
+  else{
+    return true;
+  }
 }
 
 export default (props) => {
