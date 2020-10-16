@@ -8,6 +8,7 @@ import LandingCard from "../components/LandingCard";
 import SearchBar from "../components/SearchBar2";
 import Favourites from "../components/Favourites";
 import RecommendCard from "../components/RecommendCard";
+import AccountSummary from "../components/AccountSummary";
 import { UserContext } from "../contexts/UserContext";
 import { getPageInforFromPageId, getAllCategoryInfor } from "../asset/pages";
 
@@ -24,6 +25,26 @@ const LandingGreen = styled.div`
   text-align: center;
 `;
 
+const Wrapper = styled.div`
+  padding-top: 30px;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-columns: 50% 50%;
+  @media (max-width: 1200px) {
+    grid-template-columns: auto;
+  }
+`;
+
+const HeaderImage = styled.img`
+  height: "120px";
+  margin: "2rem auto";
+  margin-bottom: 10px;
+  @media (max-width: 1200px) {
+    display: none;
+  }
+`;
+
 export default (props) => {
   const history = useHistory();
   const { currentUser } = useContext(UserContext);
@@ -33,15 +54,19 @@ export default (props) => {
       <Section>
         <LandingGreen>
           <div className="container">
-            <img
-              style={{ height: "120px", margin: "2rem auto" }}
-              alt="Hello there"
-              src={helloImg}
-              draggable="false"
-            />
-            <h1>Hello, {currentUser.name}</h1>
-            <p>What would you like to do today?</p>
-            <SearchBar></SearchBar>
+            <Wrapper>
+              <div style={{ paddingBottom: "25px" }}>
+                <HeaderImage
+                  alt="Hello there"
+                  src={helloImg}
+                  draggable="false"
+                />
+                <h1>Hello, {currentUser.name}</h1>
+                <p>What would you like to do today?</p>
+                <SearchBar></SearchBar>
+              </div>
+              <AccountSummary data={currentUser} />
+            </Wrapper>
           </div>
         </LandingGreen>
         <Scrollable>

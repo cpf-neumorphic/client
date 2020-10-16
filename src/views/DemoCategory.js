@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 import styled from "styled-components";
@@ -8,11 +8,13 @@ import FavouriteCard from "../components/FavouriteCard";
 import { getAllCategoryInfor } from "../asset/pages";
 
 import imgAccountOverview from "../img/account-overview.jpg";
+import { UserContext } from "../contexts/UserContext";
 
 const DemoCategory = (props) => {
   const { title, description } = props;
+  const { currentUser } = useContext(UserContext);
   const history = useHistory();
-
+  console.log(currentUser);
   return (
     <>
       <LandingGreen>
@@ -20,12 +22,14 @@ const DemoCategory = (props) => {
           <h1>{title}</h1>
           <p>{description}</p>
           {title === "View" && (
-            <img
-              style={{ width: "650px" }}
-              src={imgAccountOverview}
-              alt="Account Overview"
-              draggable="false"
-            />
+            <>
+              <img
+                style={{ width: "650px" }}
+                src={imgAccountOverview}
+                alt="Account Overview"
+                draggable="false"
+              />
+            </>
           )}
         </div>
       </LandingGreen>
