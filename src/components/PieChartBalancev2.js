@@ -12,6 +12,10 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-columns: auto auto;
   align-items: center;
+  @media (max-width: 531px) {
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+  }
 `;
 
 const Wrapper2 = styled.div`
@@ -27,11 +31,6 @@ export default function PieChartBalancev2(props) {
   const total = OA + SA + MA;
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // const data = [
-  //   { name: "Ordinary Account", value: OA },
-  //   { name: "Special Account", value: SA },
-  //   { name: "MediSave Account", value: MA },
-  // ];
   const header = [{ total: total }];
   const data = [
     {
@@ -50,19 +49,6 @@ export default function PieChartBalancev2(props) {
       value: MA,
     },
   ];
-
-  // const [selected, setSelected] = useState(0);
-  // const [hovered, setHovered] = useState(undefined);
-
-  // const data = datas.map((entry, i) => {
-  //   if (hovered === i) {
-  //     return {
-  //       ...entry,
-  //       color: "grey",
-  //     };
-  //   }
-  //   return entry;
-  // });
 
   return (
     <MainWrapper>
@@ -83,7 +69,7 @@ export default function PieChartBalancev2(props) {
         <div>
           <PieChart
             style={{
-              fontFamily: "Quicksand",
+              fontFamily: "Open Sans",
               fontSize: "8px",
             }}
             data={data}

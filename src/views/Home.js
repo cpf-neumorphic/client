@@ -50,6 +50,14 @@ const SummaryWrapper = styled.div`
   }
 `;
 
+const HeaderImage = styled.img`
+  height: "120px";
+  margin: "2rem auto";
+  @media (max-width: 991px) {
+    display: none;
+  }
+`;
+
 export default (props) => {
   const history = useHistory();
   const { currentUser } = useContext(UserContext);
@@ -61,8 +69,7 @@ export default (props) => {
           <div className="container">
             <Wrapper>
               <div style={{ paddingBottom: "25px" }}>
-                <img
-                  style={{ height: "120px", margin: "2rem auto" }}
+                <HeaderImage
                   alt="Hello there"
                   src={helloImg}
                   draggable="false"
