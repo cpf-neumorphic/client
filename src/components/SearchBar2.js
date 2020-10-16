@@ -34,7 +34,7 @@ const options = [
   { label: <b>Manage</b>, value: "#" },
   {
     label: "☎️\xa0\xa0Contact Information",
-    text: ["contact","information","phone"],
+    text: ["contact","information","phone","number"],
     value: "contact_information",
   },
   {
@@ -118,7 +118,7 @@ function filterOptions(options, filterString) {
     if (text) {
       filteredWords.forEach((e1)=>text.forEach((e2)=> 
       {
-        if(e1.length>=2 && e2.includes(e1)){
+        if(e1.length>=3 && e2.includes(e1)){
         // if(e1===e2){
           // console.log("Match")
           // matches.push(e1);
