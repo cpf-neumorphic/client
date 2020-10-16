@@ -39,6 +39,7 @@ const Wrapper = styled.div`
 const HeaderImage = styled.img`
   height: "120px";
   margin: "2rem auto";
+  margin-bottom: 10px;
   @media (max-width: 1200px) {
     display: none;
   }
