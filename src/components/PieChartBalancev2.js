@@ -89,8 +89,8 @@ export default function PieChartBalancev2(props) {
             labelStyle={{
               fill: "#000",
             }}
-            viewBoxSize={[160, 160]}
-            center={[80, 80]}
+            viewBoxSize={[180, 180]}
+            center={[90, 90]}
           >
             <PieChart
               style={{
