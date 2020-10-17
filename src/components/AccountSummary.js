@@ -11,7 +11,7 @@ const colorTitleMapping = {
 export default (props) => {
   const { OA, SA, MA } = props.data;
   const total = OA + SA + MA;
-  const header = [{ total: total }];
+  const header = [{ value: total }];
 
   const accountSummaryData = Object.keys(colorTitleMapping).map((key) => ({
     ...colorTitleMapping[key],
@@ -49,14 +49,14 @@ export default (props) => {
             lineWidth={0}
             label={({ dataEntry }) =>
               "$" +
-              dataEntry.total.toLocaleString(undefined, {
+              dataEntry.value.toLocaleString(undefined, {
                 minimumFractionDigits: 2,
                 maximumFractionDigits: 2,
               })
             }
-            labelPosition={100}
+            // labelPosition={100}
             viewBoxSize={[190, 190]}
-            center={[90, 95]}
+            center={[95, 95]}
           />
         </PieChart>
         <LegendWrapper>
