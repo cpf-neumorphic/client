@@ -15,7 +15,7 @@ export default (props) => {
 
   const accountSummaryData = Object.keys(colorTitleMapping).map((key) => ({
     ...colorTitleMapping[key],
-    value: eval(key),
+    value: props.data[key],
   }));
 
   return (
